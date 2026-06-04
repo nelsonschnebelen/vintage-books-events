@@ -71,19 +71,51 @@
     }
 
     /* ─────────────────────────────────────────
-       TOP BAR — same as brunch
+       TOP BAR — full navigation
     ───────────────────────────────────────── */
     .topbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 12px 28px;
+      gap: 24px;
       background: rgba(20,16,10,0.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(184,142,58,0.25);
     }
-    .topbar-mark { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+    .topbar-mark { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; flex-shrink: 0; }
     .topbar-mark img { height: 38px; width: auto; display: block; }
+
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      flex: 1;
+      justify-content: center;
+    }
+    .topbar-nav a {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--parchment);
+      text-decoration: none;
+      padding: 6px 2px;
+      border-bottom: 1px solid transparent;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .topbar-nav a:hover {
+      color: var(--brass-bright);
+      border-bottom-color: var(--brass-bright);
+    }
+    .topbar-nav a.active {
+      color: var(--brass-bright);
+      border-bottom-color: var(--brass-bright);
+    }
+
     .topbar-cta {
       font-family: 'Inter', sans-serif;
       font-size: 11px;
@@ -94,12 +126,75 @@
       padding: 9px 22px;
       border: 1px solid var(--brass-bright);
       transition: all 0.3s ease;
+      flex-shrink: 0;
     }
     .topbar-cta:hover { background: var(--brass-bright); color: var(--ink-deep); }
+
+    /* Mobile hamburger toggle */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--brass-bright);
+      color: var(--brass-bright);
+      width: 38px; height: 38px;
+      cursor: pointer;
+      align-items: center; justify-content: center;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 18px; height: 1.5px;
+      background: var(--brass-bright);
+      position: relative;
+    }
+    .nav-toggle span::before, .nav-toggle span::after {
+      content: '';
+      position: absolute;
+      left: 0; width: 18px; height: 1.5px;
+      background: var(--brass-bright);
+      transition: transform 0.25s ease;
+    }
+    .nav-toggle span::before { top: -6px; }
+    .nav-toggle span::after { top: 6px; }
+    body.nav-open .nav-toggle span { background: transparent; }
+    body.nav-open .nav-toggle span::before { transform: translateY(6px) rotate(45deg); }
+    body.nav-open .nav-toggle span::after  { transform: translateY(-6px) rotate(-45deg); }
+
+    @media (max-width: 980px) {
+      .topbar { padding: 10px 18px; gap: 12px; }
+      .topbar-mark img { height: 32px; }
+      .nav-toggle { display: inline-flex; }
+      .topbar-nav {
+        position: fixed;
+        top: 60px; left: 0; right: 0; bottom: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        background: rgba(10,8,5,0.98);
+        backdrop-filter: blur(20px);
+        padding: 40px 28px;
+        gap: 28px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        border-top: 1px solid rgba(184,142,58,0.25);
+      }
+      body.nav-open .topbar-nav {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .topbar-nav a {
+        font-size: 18px;
+        letter-spacing: 4px;
+        padding: 8px 0;
+        text-align: center;
+      }
+      .topbar-cta { padding: 8px 16px; font-size: 10px; letter-spacing: 2px; }
+    }
     @media (max-width: 540px) {
-      .topbar { padding: 10px 18px; }
       .topbar-mark img { height: 28px; }
-      .topbar-cta { padding: 7px 14px; font-size: 10px; letter-spacing: 2px; }
+      .topbar-cta span { display: none; }
+      .topbar-cta::before { content: 'Reserve'; }
     }
 
     /* ═══════════════════════════════════════════
@@ -1278,7 +1373,20 @@
   <!-- TOP BAR -->
   <nav class="topbar">
     <a href="https://www.vintagebookshawaii.com/" class="topbar-mark" aria-label="Vintage Books"><img src="vb-logo-cream.png" alt="Vintage Books"></a>
-    <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="topbar-cta">Reserve</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+
+    <ul class="topbar-nav" id="topbarNav">
+      <li><a href="https://www.vintagebookshawaii.com/food">Menu</a></li>
+      <li><a href="https://www.vintagebookshawaii.com/story">Story</a></li>
+      <li><a href="https://www.vintagebookshawaii.com/speakeasy-book-club">Book Club</a></li>
+      <li><a href="https://vintage-books-brunch.netlify.app/">Brunch</a></li>
+      <li><a href="#top" class="active">Events</a></li>
+      <li><a href="https://www.vintagebookshawaii.com/contact">Contact</a></li>
+      <li><a href="https://www.vintagebookshawaii.com/contact-1">Gift Cards</a></li>
+    </ul>
+
+    <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="topbar-cta"><span>Reservations</span></a>
   </nav>
 
   <!-- ═══ HERO ═══ -->
@@ -1528,6 +1636,28 @@
     <p class="footer-tag">★ Vintage Books · Honolulu ★</p>
     <p class="footer-meta">&copy; 2026 Vintage Books Hawaii &nbsp;&middot;&nbsp; <a href="https://www.vintagebookshawaii.com/">vintagebookshawaii.com</a></p>
   </footer>
+
+  <script>
+    // Mobile nav toggle
+    (function() {
+      var toggle = document.getElementById('navToggle');
+      var body = document.body;
+      if (!toggle) return;
+      toggle.addEventListener('click', function() {
+        var open = body.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      // Close nav when any link is clicked (mobile)
+      document.querySelectorAll('#topbarNav a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          body.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open menu');
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
