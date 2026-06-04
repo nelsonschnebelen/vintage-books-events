@@ -877,6 +877,11 @@
     }
     @media (max-width: 820px) { .reels-grid { grid-template-columns: 1fr; gap: 30px; } }
 
+    .reel-solo {
+      max-width: 480px;
+      margin: 50px auto 0;
+    }
+
     .reel-frame {
       position: relative;
       background: linear-gradient(145deg, #2a1d10 0%, #1a1108 50%, #14100a 100%);
@@ -945,105 +950,6 @@
       color: var(--parchment-dark);
       font-size: 15px;
       letter-spacing: 1px;
-    }
-
-    /* ═══════════════════════════════════════════
-       SEASONAL / ANNUAL
-    ═══════════════════════════════════════════ */
-    .seasonal {
-      padding: 110px 24px;
-    }
-    .seasonal-inner { max-width: 1180px; margin: 0 auto; }
-
-    .seasonal-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      margin-top: 30px;
-    }
-    @media (max-width: 820px) { .seasonal-grid { grid-template-columns: 1fr; } }
-
-    .season-card {
-      position: relative;
-      background: var(--parchment-light);
-      border: 2px solid var(--ink-soft);
-      padding: 0;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.18);
-    }
-    .season-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 28px 60px rgba(0,0,0,0.28);
-    }
-
-    .season-photo {
-      position: relative;
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      background: var(--ink-deep);
-    }
-    .season-photo img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-    .season-card:hover .season-photo img { transform: scale(1.04); }
-
-    .season-photo-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(20,16,10,0) 30%, rgba(20,16,10,0.5) 100%);
-      pointer-events: none;
-    }
-
-    .season-badge {
-      position: absolute;
-      top: 18px; left: 18px;
-      font-family: 'IM Fell English SC', serif;
-      font-size: 10px;
-      letter-spacing: 3px;
-      padding: 6px 14px;
-      background: var(--burgundy);
-      color: var(--parchment-light);
-      border: 1px solid var(--burgundy-deep);
-      text-transform: uppercase;
-      z-index: 2;
-    }
-
-    .season-body { padding: 28px 30px 30px; }
-
-    .season-title {
-      font-family: 'IM Fell English SC', serif;
-      font-size: 26px;
-      letter-spacing: 3px;
-      color: var(--ink);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-      line-height: 1;
-    }
-    .season-title em {
-      font-family: 'IM Fell English', serif;
-      font-style: italic;
-      color: var(--brass);
-      letter-spacing: 1px;
-      text-transform: lowercase;
-    }
-
-    .season-meta {
-      font-family: 'IM Fell English', serif;
-      font-style: italic;
-      font-size: 14px;
-      color: var(--brass);
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-
-    .season-desc {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 17px;
-      color: var(--ink-soft);
-      line-height: 1.55;
     }
 
     /* ═══════════════════════════════════════════
@@ -1650,84 +1556,26 @@
     </div>
   </section>
 
-  <!-- ═══ REELS — Tequila + Christmas video ═══ -->
+  <!-- ═══ REEL — Tequila Tuesdays centerpiece ═══ -->
   <section class="reels">
     <div class="section-inner">
       <div class="section-header">
         <p class="section-eyebrow">Step Behind the Bookshelf</p>
-        <h2 class="section-title">Two <em>reels.</em></h2>
+        <h2 class="section-title">The <em>agave</em><br>hours.</h2>
         <p class="section-sub">A taste of the room when the lights go down &mdash; pulled straight from the floor.</p>
       </div>
 
-      <div class="reels-grid">
-        <div>
-          <div class="reel-frame">
-            <span class="corner bl"></span><span class="corner br"></span>
-            <div class="reel-screen">
-              <video autoplay muted loop playsinline preload="metadata" poster="assets/havana-night/img-5542.jpg">
-                <source src="assets/tequila-tuesdays/tequila-tuesdays-vb.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="reel-plate">Tequila Tuesdays</div>
-          </div>
-          <p class="reel-caption">The agave nights, every Tuesday.</p>
-        </div>
-
-        <div>
-          <div class="reel-frame">
-            <span class="corner bl"></span><span class="corner br"></span>
-            <div class="reel-screen">
-              <video muted playsinline preload="none" poster="assets/christmas/poster.jpg" controls>
-                <source src="assets/christmas/bts-christmas-decorating.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="reel-plate">Decking the Speakeasy</div>
-          </div>
-          <p class="reel-caption">Behind-the-scenes · the holiday transformation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SEASONAL ═══ -->
-  <section class="seasonal">
-    <div class="seasonal-inner">
-      <div class="section-header">
-        <p class="section-eyebrow">Seasonal Traditions</p>
-        <h2 class="section-title">Special <em>occasions,</em><br>Properly hosted.</h2>
-        <p class="section-sub">Annual evenings the regulars plan their year around.</p>
-      </div>
-
-      <div class="seasonal-grid">
-
-        <article class="season-card">
-          <div class="season-photo">
-            <img src="assets/mothers-day/img-9112.jpg" alt="Mother's Day at Vintage Books" loading="lazy">
-            <span class="season-badge">Annual · May</span>
-            <div class="season-photo-overlay"></div>
-          </div>
-          <div class="season-body">
-            <h3 class="season-title">Mother's Day <em>at Vintage Books</em></h3>
-            <p class="season-meta">— A celebration for the women who hold the page —</p>
-            <p class="season-desc">A special seating, a curated menu, and the kind of room that says <em>thank you</em> properly. Watch for the May announcement.</p>
-          </div>
-        </article>
-
-        <article class="season-card">
-          <div class="season-photo">
-            <video muted autoplay loop playsinline preload="metadata">
-              <source src="assets/christmas/bts-christmas-decorating.mp4" type="video/mp4">
+      <div class="reel-solo">
+        <div class="reel-frame">
+          <span class="corner bl"></span><span class="corner br"></span>
+          <div class="reel-screen">
+            <video autoplay muted loop playsinline preload="metadata" poster="assets/havana-night/img-5542.jpg">
+              <source src="assets/tequila-tuesdays/tequila-tuesdays-vb.mp4" type="video/mp4">
             </video>
-            <span class="season-badge">Annual · December</span>
-            <div class="season-photo-overlay"></div>
           </div>
-          <div class="season-body">
-            <h3 class="season-title">A Vintage <em>Christmas</em></h3>
-            <p class="season-meta">— The speakeasy, dressed for the season —</p>
-            <p class="season-desc">Every December, the lounge transforms. Garland on the bookshelves, hot toddies on the menu, and a tree that wasn't quite there yesterday. Holiday parties &amp; family bookings open from November.</p>
-          </div>
-        </article>
-
+          <div class="reel-plate">Tequila Tuesdays</div>
+        </div>
+        <p class="reel-caption">The agave nights, every Tuesday under the copper ceiling.</p>
       </div>
     </div>
   </section>
