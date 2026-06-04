@@ -430,12 +430,13 @@
 
     .week-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
       margin-top: 50px;
+      max-width: 1080px;
+      margin-left: auto; margin-right: auto;
     }
-    @media (max-width: 1000px) { .week-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px)  { .week-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .week-grid { grid-template-columns: 1fr; gap: 24px; } }
 
     .day-card {
       position: relative;
@@ -584,6 +585,63 @@
     @media (max-width: 900px) {
       .featured, .featured.flip { grid-template-columns: 1fr; direction: ltr; gap: 30px; }
     }
+
+    /* Single flyer display in featured spreads */
+    .featured-flyer {
+      position: relative;
+      max-width: 460px;
+      width: 100%;
+      justify-self: center;
+      background: var(--parchment-light);
+      padding: 14px 14px 14px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.28), 0 4px 8px rgba(0,0,0,0.15);
+      transform: rotate(-1.5deg);
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+    .featured.flip .featured-flyer { transform: rotate(1.5deg); }
+    .featured-flyer:hover { transform: rotate(0) scale(1.02); }
+    .featured-flyer img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      background: var(--ink-darker);
+    }
+    .featured-flyer-placeholder {
+      display: none;
+      position: absolute; inset: 0;
+      align-items: center; justify-content: center;
+      background:
+        repeating-linear-gradient(45deg, #d4c8a4 0 12px, #ece2c8 12px 24px);
+      color: var(--ink-soft);
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 16px;
+      letter-spacing: 2px;
+      text-align: center;
+      padding: 28px;
+    }
+    .featured-flyer.placeholder .featured-flyer-placeholder { display: flex; }
+
+    /* Placeholder treatment for day-card and calendar-photo when no flyer present */
+    .day-card-placeholder, .calendar-photo-placeholder {
+      display: none;
+      position: absolute; inset: 0;
+      align-items: center; justify-content: center;
+      background:
+        repeating-linear-gradient(45deg, rgba(184,142,58,0.18) 0 12px, rgba(20,16,10,0.6) 12px 24px);
+      color: var(--brass-bright);
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-align: center;
+      padding: 22px;
+      z-index: 1;
+    }
+    .day-card-media.placeholder .day-card-placeholder,
+    .calendar-photo.placeholder .calendar-photo-placeholder { display: flex; }
 
     .featured-photo-stack {
       position: relative;
@@ -1078,17 +1136,24 @@
       text-align: center;
       overflow: hidden;
       color: var(--parchment);
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(184,142,58,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 80%, rgba(90,31,28,0.32) 0%, transparent 55%),
+        linear-gradient(180deg, #14100a 0%, #0a0805 100%);
     }
-    .private-bg {
+    .private::before {
+      content: '';
       position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      filter: brightness(0.32) saturate(1.05);
+      background-image:
+        repeating-linear-gradient(45deg, rgba(184,142,58,0.025) 0 1px, transparent 1px 24px),
+        repeating-linear-gradient(-45deg, rgba(184,142,58,0.025) 0 1px, transparent 1px 24px);
+      pointer-events: none;
     }
     .private::after {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse at center, transparent 0%, rgba(10,8,5,0.7) 100%);
+      background: radial-gradient(ellipse at center, transparent 0%, rgba(10,8,5,0.4) 100%);
+      pointer-events: none;
     }
     .private-inner {
       position: relative; z-index: 2;
@@ -1222,11 +1287,11 @@
       <p class="hero-eyebrow">Vintage Books · Honolulu</p>
       <h1 class="hero-title">What's <em>on</em><br>This Week.</h1>
       <div class="hero-divider"><span></span><span>✦</span><span></span></div>
-      <p class="hero-tagline">Live music behind the bookshelf. $30 wine flights on a Monday. Tequila Tuesday under a copper ceiling. Trivia in the Private Collection lounge. Every night, a different evening &mdash; same hidden room in Kaimuki.</p>
+      <p class="hero-tagline">Live music behind the bookshelf. $30 wine flights on a Monday. Trivia in the Private Collection lounge. An immersive author dinner. A whiskey-and-steak July night. Every evening, a different chapter &mdash; same hidden room in Kaimuki.</p>
 
       <div class="hero-stats">
-        <div class="hero-stat"><span class="hero-stat-num">7</span><span class="hero-stat-label">Recurring Nights</span></div>
-        <div class="hero-stat"><span class="hero-stat-num">12+</span><span class="hero-stat-label">Themed Events</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">Recurring Nights</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">2</span><span class="hero-stat-label">Featured Evenings</span></div>
         <div class="hero-stat"><span class="hero-stat-num">∞</span><span class="hero-stat-label">Stories Told</span></div>
       </div>
 
@@ -1248,7 +1313,7 @@
       <div class="section-header">
         <p class="section-eyebrow">The Standing Calendar</p>
         <h2 class="section-title">Every <em>week,</em><br>A different ritual.</h2>
-        <p class="section-sub">Four recurring nights in the back lounge &mdash; each with its own pour, plate, and pace.</p>
+        <p class="section-sub">Three recurring nights in the back lounge &mdash; each with its own pour, plate, and pace.</p>
       </div>
 
       <div class="week-grid">
@@ -1256,7 +1321,8 @@
         <!-- MONDAY · Wine Down Mondays -->
         <article class="day-card">
           <div class="day-card-media">
-            <img src="assets/wine-tastings/img-9256.jpg" alt="Wine glasses at a Vintage Books wine tasting" loading="lazy">
+            <img src="assets/flyers/wine-down-mondays.jpg" alt="Wine Down Mondays flyer" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+            <span class="day-card-placeholder">Wine Down Mondays flyer</span>
             <span class="day-card-tag">Recurring</span>
             <span class="day-card-day">Mondays</span>
           </div>
@@ -1273,32 +1339,11 @@
           </div>
         </article>
 
-        <!-- TUESDAY · Tequila Tuesdays -->
-        <article class="day-card">
-          <div class="day-card-media">
-            <video autoplay muted loop playsinline preload="metadata" poster="">
-              <source src="assets/tequila-tuesdays/tequila-tuesdays-vb.mp4" type="video/mp4">
-            </video>
-            <span class="day-card-tag">Recurring</span>
-            <span class="day-card-day">Tuesdays</span>
-          </div>
-          <div class="day-card-body">
-            <h3 class="day-card-name">Tequila <em>Tuesdays</em></h3>
-            <p class="day-card-desc">Mezcal, blanco, reposado, añejo. Shaken, neat, or stirred &mdash; agave gets the spotlight every Tuesday under the copper ceiling.</p>
-            <ul class="day-card-perks">
-              <li>Featured tequila &amp; mezcal pours</li>
-              <li>Tasting flights at the bar</li>
-              <li>Specialty cocktails from the back-bar</li>
-              <li>Late-night menu through close</li>
-            </ul>
-            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="day-card-cta">Reserve a Table</a>
-          </div>
-        </article>
-
         <!-- WEDNESDAY · Live Music -->
         <article class="day-card">
           <div class="day-card-media">
-            <img src="assets/live-music/img-0839.jpg" alt="Live music at Vintage Books" loading="lazy">
+            <img src="assets/flyers/live-music.jpg" alt="Live Music June 2026 flyer" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+            <span class="day-card-placeholder">Live Music flyer</span>
             <span class="day-card-tag">Weekly</span>
             <span class="day-card-day">Wednesdays</span>
           </div>
@@ -1318,7 +1363,8 @@
         <!-- TRIVIA -->
         <article class="day-card">
           <div class="day-card-media">
-            <img src="assets/trivia-night/img-8349.jpg" alt="Trivia night at Vintage Books" loading="lazy">
+            <img src="assets/flyers/trivia-night.jpg" alt="Trivia Night flyer" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+            <span class="day-card-placeholder">Trivia Night flyer</span>
             <span class="day-card-tag">Recurring</span>
             <span class="day-card-day">Trivia Night</span>
           </div>
@@ -1354,15 +1400,9 @@
 
         <!-- VOICES OF HAWAI'I -->
         <article class="featured">
-          <div class="featured-photo-stack">
-            <div class="featured-photo back">
-              <img src="assets/havana-night/img-5544.jpg" alt="A literary evening at Vintage Books" loading="lazy">
-              <p class="featured-photo-caption">A literary evening</p>
-            </div>
-            <div class="featured-photo front">
-              <img src="assets/wine-tastings/img-9249.jpg" alt="An immersive author dinner at Vintage Books" loading="lazy">
-              <p class="featured-photo-caption">Storytelling &amp; supper</p>
-            </div>
+          <div class="featured-flyer">
+            <img src="assets/flyers/voices-of-hawaii.jpg" alt="Voices of Hawai'i with Jane Goodsill flyer" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+            <span class="featured-flyer-placeholder">Voices of Hawai'i flyer</span>
           </div>
           <div class="featured-body">
             <span class="featured-stamp upcoming">★ Ticketed Event</span>
@@ -1381,15 +1421,9 @@
 
         <!-- GENTLEMAN'S DINNER -->
         <article class="featured flip">
-          <div class="featured-photo-stack">
-            <div class="featured-photo back">
-              <img src="assets/live-music/img-8903.jpg" alt="Whiskey at Vintage Books" loading="lazy">
-              <p class="featured-photo-caption">Whiskey on the rocks</p>
-            </div>
-            <div class="featured-photo front">
-              <img src="assets/brunch/img-0581.jpg" alt="A perfectly grilled steak at Vintage Books" loading="lazy">
-              <p class="featured-photo-caption">A tomahawk to share</p>
-            </div>
+          <div class="featured-flyer">
+            <img src="assets/flyers/gentlemans-dinner.jpg" alt="The Gentleman's Dinner · July 7 flyer" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+            <span class="featured-flyer-placeholder">Gentleman's Dinner flyer</span>
           </div>
           <div class="featured-body">
             <span class="featured-stamp upcoming">★ Monthly Series</span>
@@ -1410,110 +1444,6 @@
     </div>
   </section>
 
-  <!-- ═══ THEMED NIGHTS — pinboard ═══ -->
-  <section class="themed-section" id="themed">
-    <div class="section-inner">
-      <div class="section-header">
-        <p class="section-eyebrow">From the Archives</p>
-        <h2 class="section-title">Themed <em>Nights &amp;</em><br>House Specials.</h2>
-        <p class="section-sub">Themed evenings the regulars whisper about. Some recur seasonally &mdash; some only when the right night calls for it.</p>
-      </div>
-
-      <div class="pinboard">
-
-        <!-- HAVANA NIGHT -->
-        <article class="pin-card">
-          <div class="pin-card-photo">
-            <img src="assets/havana-night/img-5542.jpg" alt="Havana Night at Vintage Books" loading="lazy">
-            <div class="pin-card-overlay">
-              <span class="pin-card-eyebrow">Themed Night</span>
-              <div class="pin-card-bottom">
-                <h3 class="pin-card-title">Havana <em>Night</em></h3>
-                <p class="pin-card-meta">Cuban rhythm · Cuban rum · linen &amp; lace welcome</p>
-              </div>
-            </div>
-          </div>
-          <p class="pin-card-caption">Dress for the dance floor.</p>
-        </article>
-
-        <!-- GIRL DINNER -->
-        <article class="pin-card">
-          <div class="pin-card-photo">
-            <img src="assets/girl-dinner/92072d7a-3332-4077-8c53-7e8ce5b9294c.jpg" alt="Girl Dinner at Vintage Books" loading="lazy">
-            <div class="pin-card-overlay">
-              <span class="pin-card-eyebrow">Themed Night</span>
-              <div class="pin-card-bottom">
-                <h3 class="pin-card-title">Girl <em>Dinner</em></h3>
-                <p class="pin-card-meta">An evening assembled, not ordered &mdash; small plates, big company</p>
-              </div>
-            </div>
-          </div>
-          <p class="pin-card-caption">"Whatever our souls are made of..."</p>
-        </article>
-
-        <!-- MOORE ALOHA -->
-        <article class="pin-card">
-          <div class="pin-card-photo">
-            <img src="assets/moore-aloha/img-9046.jpg" alt="Moore Aloha event at Vintage Books" loading="lazy">
-            <div class="pin-card-overlay">
-              <span class="pin-card-eyebrow">Partner Series</span>
-              <div class="pin-card-bottom">
-                <h3 class="pin-card-title">Moore <em>Aloha</em></h3>
-                <p class="pin-card-meta">A celebration of community &amp; the women who hold it up</p>
-              </div>
-            </div>
-          </div>
-          <p class="pin-card-caption">By &amp; for the Honolulu community.</p>
-        </article>
-
-        <!-- WINE TASTINGS -->
-        <article class="pin-card">
-          <div class="pin-card-photo">
-            <img src="assets/wine-tastings/sommelier-pour.jpg" alt="A sommelier pouring at a Vintage Books wine tasting" loading="lazy">
-            <div class="pin-card-overlay">
-              <span class="pin-card-eyebrow">Special Tasting</span>
-              <div class="pin-card-bottom">
-                <h3 class="pin-card-title">Wine <em>Tastings</em></h3>
-                <p class="pin-card-meta">Guided flights · winemaker dinners · members' first taste</p>
-              </div>
-            </div>
-          </div>
-          <p class="pin-card-caption">Glasses fill, conversations follow.</p>
-        </article>
-
-        <!-- BRUNCH (cross-promo) -->
-        <article class="pin-card">
-          <div class="pin-card-photo">
-            <img src="assets/brunch/img-9094.jpg" alt="Weekend brunch at Vintage Books" loading="lazy">
-            <div class="pin-card-overlay">
-              <span class="pin-card-eyebrow">Weekends</span>
-              <div class="pin-card-bottom">
-                <h3 class="pin-card-title">Weekend <em>Brunch</em></h3>
-                <p class="pin-card-meta">Sat &amp; Sun · 10 AM &ndash; 2 PM · slow mornings, properly rewarded</p>
-              </div>
-            </div>
-          </div>
-          <p class="pin-card-caption">Read this chapter at the table.</p>
-        </article>
-
-        <!-- TRIVIA cross-link -->
-        <article class="pin-card">
-          <div class="pin-card-photo">
-            <img src="assets/trivia-night/img-9379.jpg" alt="Trivia Night lounge" loading="lazy">
-            <div class="pin-card-overlay">
-              <span class="pin-card-eyebrow">Quiz · Game · Fun</span>
-              <div class="pin-card-bottom">
-                <h3 class="pin-card-title">Trivia <em>Night</em></h3>
-                <p class="pin-card-meta">In the Private Collection lounge · $10 to play</p>
-              </div>
-            </div>
-          </div>
-          <p class="pin-card-caption">Bring the brain. We'll bring the prizes.</p>
-        </article>
-
-      </div>
-    </div>
-  </section>
 
   <!-- ═══ LIVE MUSIC CALENDAR ═══ -->
   <section class="calendar-section" id="calendar">
@@ -1549,40 +1479,16 @@
         </ul>
 
         <div class="calendar-photo">
-          <img src="assets/live-music/img-8904.jpg" alt="Live music in the Vintage Books lounge" loading="lazy">
+          <img src="assets/flyers/live-music.jpg" alt="Live Music June 2026 flyer" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+          <span class="calendar-photo-placeholder">Live Music flyer</span>
           <p class="calendar-photo-caption">In the lounge · 7&ndash;9 PM</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ REEL — Tequila Tuesdays centerpiece ═══ -->
-  <section class="reels">
-    <div class="section-inner">
-      <div class="section-header">
-        <p class="section-eyebrow">Step Behind the Bookshelf</p>
-        <h2 class="section-title">The <em>agave</em><br>hours.</h2>
-        <p class="section-sub">A taste of the room when the lights go down &mdash; pulled straight from the floor.</p>
-      </div>
-
-      <div class="reel-solo">
-        <div class="reel-frame">
-          <span class="corner bl"></span><span class="corner br"></span>
-          <div class="reel-screen">
-            <video autoplay muted loop playsinline preload="metadata" poster="assets/havana-night/img-5542.jpg">
-              <source src="assets/tequila-tuesdays/tequila-tuesdays-vb.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="reel-plate">Tequila Tuesdays</div>
-        </div>
-        <p class="reel-caption">The agave nights, every Tuesday under the copper ceiling.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ═══ PRIVATE EVENTS ═══ -->
   <section class="private">
-    <img class="private-bg" src="assets/havana-night/img-5544.jpg" alt="" loading="lazy">
     <div class="private-inner">
       <p class="private-eyebrow">— Private Events —</p>
       <h2 class="private-title">Host It <em>here.</em></h2>
