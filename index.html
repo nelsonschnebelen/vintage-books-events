@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's On — Events at Vintage Books, Honolulu</title>
+  <meta name="description" content="Live music, themed nights, wine tastings, trivia, immersive author dinners — every week and season at Vintage Books, Honolulu's hidden literary speakeasy in Kaimuki.">
+  <meta property="og:title" content="What's On at Vintage Books — Live Music · Wine · Trivia · Themed Nights">
+  <meta property="og:description" content="The full calendar of recurring nights and special events at Vintage Books Hawaii.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="vb-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink: #2a1d10;
+      --ink-soft: #4a3520;
+      --ink-deep: #14100a;
+      --ink-darker: #0a0805;
+      --parchment: #ece2c8;
+      --parchment-light: #f4ead4;
+      --parchment-dark: #d4c8a4;
+      --brass: #8a6420;
+      --brass-bright: #b88e3a;
+      --brass-deep: #5e4515;
+      --burgundy: #5a1f1c;
+      --burgundy-deep: #3a0f0c;
+      --olive: #4a5240;
+      --olive-deep: #2e3528;
+      --muted: #6e5c40;
+      --tape: rgba(212,164,54,0.45);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: url('parchment.jpg') repeat;
+      background-size: 1400px auto;
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .serif  { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .display { font-family: 'IM Fell English SC', 'Cormorant Garamond', serif; }
+    .display-it { font-family: 'IM Fell English', 'Cormorant Garamond', serif; font-style: italic; }
+
+    /* ─── FILM GRAIN OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.06;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      animation: grain 1.2s steps(4) infinite;
+    }
+    @keyframes grain {
+      0%   { transform: translate(0, 0); }
+      25%  { transform: translate(-3%, 2%); }
+      50%  { transform: translate(2%, -2%); }
+      75%  { transform: translate(-1%, 1%); }
+      100% { transform: translate(0, 0); }
+    }
+
+    /* ─────────────────────────────────────────
+       TOP BAR — same as brunch
+    ───────────────────────────────────────── */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 28px;
+      background: rgba(20,16,10,0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(184,142,58,0.25);
+    }
+    .topbar-mark { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+    .topbar-mark img { height: 38px; width: auto; display: block; }
+    .topbar-cta {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brass-bright);
+      text-decoration: none;
+      padding: 9px 22px;
+      border: 1px solid var(--brass-bright);
+      transition: all 0.3s ease;
+    }
+    .topbar-cta:hover { background: var(--brass-bright); color: var(--ink-deep); }
+    @media (max-width: 540px) {
+      .topbar { padding: 10px 18px; }
+      .topbar-mark img { height: 28px; }
+      .topbar-cta { padding: 7px 14px; font-size: 10px; letter-spacing: 2px; }
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO — THE FRONT WINDOW
+       a dim Kaimuki shopfront window with the
+       night's "now playing" sign hand-set in brass
+    ═══════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh; min-height: 100dvh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 90px 24px 60px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(74,82,64,0.45) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 100%, rgba(20,16,10,0.7) 0%, transparent 60%),
+        linear-gradient(180deg, #0a0805 0%, #14100a 35%, #2e3528 100%);
+    }
+
+    /* Engraved crosshatch */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(184,142,58,0.025) 0 1px, transparent 1px 22px),
+        repeating-linear-gradient(-45deg, rgba(184,142,58,0.025) 0 1px, transparent 1px 22px);
+      pointer-events: none;
+    }
+
+    /* Subtle warm lamp glow upper-left */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -10%; left: -10%;
+      width: 60%; height: 60%;
+      background: radial-gradient(circle, rgba(184,142,58,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 3;
+      width: 100%;
+      max-width: 980px;
+      text-align: center;
+      animation: fadeUp 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 16px;
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--brass-bright);
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 60px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--brass-bright));
+    }
+    .hero-eyebrow::after { background: linear-gradient(to left, transparent, var(--brass-bright)); }
+
+    .hero-title {
+      font-family: 'IM Fell English SC', serif;
+      font-size: clamp(50px, 9vw, 116px);
+      line-height: 0.92;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--parchment-light);
+      margin-bottom: 14px;
+    }
+    .hero-title em {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      color: var(--brass-bright);
+      letter-spacing: 0;
+      text-transform: lowercase;
+      font-size: 0.6em;
+      display: inline-block;
+    }
+
+    .hero-divider {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px;
+      margin: 28px 0;
+    }
+    .hero-divider span:first-child, .hero-divider span:last-child {
+      width: 80px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--brass-bright));
+    }
+    .hero-divider span:last-child { background: linear-gradient(to left, transparent, var(--brass-bright)); }
+    .hero-divider span:nth-child(2) {
+      color: var(--brass-bright);
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 16px;
+    }
+
+    .hero-tagline {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(18px, 2.2vw, 22px);
+      color: var(--parchment);
+      max-width: 620px;
+      margin: 0 auto 38px;
+      line-height: 1.55;
+      opacity: 0.95;
+    }
+
+    .hero-stats {
+      display: flex; gap: 32px;
+      justify-content: center; flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 600px) { .hero-stats { gap: 20px; } }
+
+    .hero-stat {
+      text-align: center;
+      min-width: 110px;
+    }
+    .hero-stat-num {
+      display: block;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 38px;
+      letter-spacing: 2px;
+      color: var(--brass-bright);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .hero-stat-label {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--parchment-dark);
+      opacity: 0.85;
+    }
+
+    .hero-ctas {
+      display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 17px 42px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid var(--brass-bright);
+    }
+    .btn-brass {
+      color: var(--ink-deep);
+      background: linear-gradient(135deg, #d4a854 0%, #b88e3a 50%, #8a6420 100%);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+    .btn-brass:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(184,142,58,0.4), inset 0 1px 0 rgba(255,255,255,0.4);
+      letter-spacing: 5px;
+    }
+    .btn-ghost {
+      color: var(--brass-bright);
+      background: transparent;
+    }
+    .btn-ghost:hover {
+      background: var(--brass-bright);
+      color: var(--ink-deep);
+      letter-spacing: 5px;
+    }
+    .btn-dark {
+      color: var(--parchment-light);
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+    .btn-dark:hover {
+      background: var(--brass-bright);
+      color: var(--ink-deep);
+      border-color: var(--brass-bright);
+      letter-spacing: 5px;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 24px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      text-align: center;
+      animation: pulse 2.4s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .scroll-hint-text {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--brass-bright);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .scroll-hint-line {
+      width: 1px; height: 32px;
+      background: linear-gradient(to bottom, var(--brass-bright), transparent);
+      margin: 0 auto;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.55; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 1; transform: translateX(-50%) translateY(4px); }
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION CHROME
+    ═══════════════════════════════════════════ */
+    .section {
+      padding: 110px 24px;
+      position: relative;
+    }
+    .section-inner { max-width: 1180px; margin: 0 auto; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+      max-width: 880px;
+      margin-left: auto; margin-right: auto;
+    }
+
+    .section-eyebrow {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+    .section-eyebrow::before, .section-eyebrow::after {
+      content: '—';
+      margin: 0 8px;
+      color: var(--brass);
+      opacity: 0.7;
+    }
+
+    .section-title {
+      font-family: 'IM Fell English SC', serif;
+      font-size: clamp(38px, 5.5vw, 64px);
+      letter-spacing: 4px;
+      color: var(--ink);
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-title em {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      color: var(--brass);
+      letter-spacing: 1px;
+      text-transform: lowercase;
+    }
+
+    .section-sub {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(17px, 2vw, 20px);
+      color: var(--muted);
+      max-width: 660px;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+
+    .ornament-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px;
+      padding: 14px 0 40px;
+    }
+    .ornament-row span:first-child, .ornament-row span:last-child {
+      width: 90px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--brass));
+    }
+    .ornament-row span:last-child { background: linear-gradient(to left, transparent, var(--brass)); }
+    .ornament-row .mark {
+      color: var(--brass);
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 4px;
+    }
+
+    /* ═══════════════════════════════════════════
+       THE WEEK — Recurring programming as a
+       week-strip of "stamps"
+    ═══════════════════════════════════════════ */
+    .week {
+      background: var(--ink-deep);
+      color: var(--parchment);
+      padding: 100px 24px;
+      position: relative;
+    }
+    .week::before, .week::after {
+      content: '';
+      position: absolute; left: 0; right: 0;
+      height: 12px;
+      background-image: linear-gradient(135deg, var(--brass-bright) 25%, transparent 25%, transparent 50%, var(--brass-bright) 50%, var(--brass-bright) 75%, transparent 75%);
+      background-size: 16px 16px;
+      opacity: 0.6;
+    }
+    .week::before { top: 0; }
+    .week::after { bottom: 0; }
+
+    .week-inner { max-width: 1180px; margin: 0 auto; }
+
+    .week .section-eyebrow { color: var(--brass-bright); }
+    .week .section-title { color: var(--parchment-light); }
+    .week .section-title em { color: var(--brass-bright); }
+    .week .section-sub { color: var(--parchment-dark); opacity: 0.85; }
+
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 50px;
+    }
+    @media (max-width: 1000px) { .week-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px)  { .week-grid { grid-template-columns: 1fr; } }
+
+    .day-card {
+      position: relative;
+      background: rgba(244,234,212,0.04);
+      border: 1px solid rgba(184,142,58,0.3);
+      padding: 0;
+      display: flex; flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .day-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--brass-bright);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    }
+
+    .day-card-media {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--ink-darker);
+    }
+    .day-card-media img, .day-card-media video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .day-card:hover .day-card-media img { transform: scale(1.06); }
+
+    .day-card-media::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(20,16,10,0) 50%, rgba(20,16,10,0.85) 100%);
+      pointer-events: none;
+    }
+
+    .day-card-tag {
+      position: absolute;
+      top: 14px; left: 14px;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      padding: 6px 12px;
+      background: var(--brass-bright);
+      color: var(--ink-deep);
+      z-index: 2;
+      border: 1px solid var(--brass-deep);
+    }
+
+    .day-card-day {
+      position: absolute;
+      bottom: 14px; left: 14px;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 14px;
+      letter-spacing: 4px;
+      color: var(--brass-bright);
+      z-index: 2;
+    }
+
+    .day-card-body {
+      padding: 22px 22px 24px;
+      flex: 1;
+      display: flex; flex-direction: column;
+    }
+
+    .day-card-name {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--parchment-light);
+      line-height: 1.1;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .day-card-name em {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      color: var(--brass-bright);
+      letter-spacing: 0;
+      text-transform: lowercase;
+    }
+
+    .day-card-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--parchment-dark);
+      line-height: 1.5;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .day-card-perks {
+      list-style: none;
+      margin-bottom: 18px;
+    }
+    .day-card-perks li {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: var(--parchment);
+      padding: 4px 0 4px 16px;
+      position: relative;
+      opacity: 0.95;
+    }
+    .day-card-perks li::before {
+      content: '✦';
+      position: absolute; left: 0;
+      color: var(--brass-bright);
+      font-size: 9px;
+      top: 9px;
+    }
+
+    .day-card-cta {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--brass-bright);
+      text-decoration: none;
+      text-transform: uppercase;
+      padding-top: 14px;
+      border-top: 1px solid rgba(184,142,58,0.25);
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: color 0.2s;
+    }
+    .day-card-cta::after { content: '→'; transition: transform 0.2s; }
+    .day-card-cta:hover { color: var(--parchment-light); }
+    .day-card-cta:hover::after { transform: translateX(4px); }
+
+    /* ═══════════════════════════════════════════
+       NOW PLAYING — Featured upcoming events
+       as alternating editorial spreads
+    ═══════════════════════════════════════════ */
+    .featured-grid { display: flex; flex-direction: column; gap: 100px; margin-top: 30px; }
+
+    .featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      position: relative;
+    }
+    .featured.flip { direction: rtl; }
+    .featured.flip > * { direction: ltr; }
+    @media (max-width: 900px) {
+      .featured, .featured.flip { grid-template-columns: 1fr; direction: ltr; gap: 30px; }
+    }
+
+    .featured-photo-stack {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      max-width: 480px;
+      width: 100%;
+      justify-self: center;
+    }
+
+    .featured-photo {
+      position: absolute;
+      width: 100%; height: 100%;
+      background: var(--parchment-light);
+      padding: 14px 14px 50px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.28), 0 4px 8px rgba(0,0,0,0.15);
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .featured-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      background: var(--ink-darker);
+    }
+    .featured-photo-caption {
+      position: absolute;
+      bottom: 14px; left: 0; right: 0;
+      text-align: center;
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--ink-soft);
+      letter-spacing: 1px;
+    }
+    .featured-photo.back {
+      transform: rotate(-7deg) translate(-18px, 14px);
+      z-index: 1;
+    }
+    .featured-photo.front {
+      transform: rotate(3deg);
+      z-index: 2;
+    }
+    .featured-photo-stack:hover .featured-photo.front { transform: rotate(0deg) scale(1.02); }
+    .featured-photo-stack:hover .featured-photo.back { transform: rotate(-3deg) translate(-22px, 8px); }
+
+    .featured-body { padding: 10px 0; }
+
+    .featured-stamp {
+      display: inline-block;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--ink-deep);
+      background: var(--brass-bright);
+      padding: 8px 18px;
+      border: 1px solid var(--brass-deep);
+      margin-bottom: 22px;
+      transform: rotate(-2deg);
+    }
+    .featured-stamp.upcoming { background: var(--burgundy); color: var(--parchment-light); border-color: var(--burgundy-deep); }
+    .featured-stamp.recurring { background: var(--olive); color: var(--parchment-light); border-color: var(--olive-deep); }
+
+    .featured-date {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 16px;
+      letter-spacing: 6px;
+      color: var(--brass);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .featured-name {
+      font-family: 'IM Fell English SC', serif;
+      font-size: clamp(34px, 4.4vw, 52px);
+      line-height: 1;
+      letter-spacing: 3px;
+      color: var(--ink);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .featured-name em {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      color: var(--brass);
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      display: block;
+      font-size: 0.65em;
+      margin-top: 4px;
+    }
+
+    .featured-byline {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--brass);
+      margin-bottom: 18px;
+    }
+
+    .featured-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(16px, 1.7vw, 19px);
+      color: var(--ink);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .featured-details {
+      list-style: none;
+      margin-bottom: 28px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(138,100,32,0.25);
+      border-bottom: 1px solid rgba(138,100,32,0.25);
+    }
+    .featured-details li {
+      display: flex; gap: 14px;
+      padding: 6px 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--ink-soft);
+    }
+    .featured-details li strong {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--brass);
+      text-transform: uppercase;
+      min-width: 90px;
+      flex-shrink: 0;
+      padding-top: 3px;
+    }
+
+    /* ═══════════════════════════════════════════
+       THEMED NIGHTS — staggered pinboard
+    ═══════════════════════════════════════════ */
+    .themed-section {
+      padding: 110px 24px;
+      background: var(--ink-deep);
+      color: var(--parchment);
+      position: relative;
+      overflow: hidden;
+    }
+    .themed-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(184,142,58,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(90,31,28,0.10) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .themed-section .section-eyebrow { color: var(--brass-bright); }
+    .themed-section .section-title { color: var(--parchment-light); }
+    .themed-section .section-title em { color: var(--brass-bright); }
+    .themed-section .section-sub { color: var(--parchment-dark); opacity: 0.85; }
+
+    .pinboard {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px 36px;
+      position: relative;
+      z-index: 2;
+      margin-top: 30px;
+    }
+    @media (max-width: 1000px) { .pinboard { grid-template-columns: 1fr 1fr; gap: 36px 24px; } }
+    @media (max-width: 620px)  { .pinboard { grid-template-columns: 1fr; gap: 40px; } }
+
+    .pin-card {
+      position: relative;
+      background: var(--parchment-light);
+      padding: 18px 18px 20px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.4), 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+      cursor: pointer;
+    }
+    .pin-card:nth-child(3n+1) { transform: rotate(-2deg); }
+    .pin-card:nth-child(3n+2) { transform: rotate(1deg); margin-top: 24px; }
+    .pin-card:nth-child(3n+3) { transform: rotate(-1deg); }
+    .pin-card:hover {
+      transform: rotate(0deg) translateY(-10px) scale(1.03);
+      box-shadow: 0 28px 60px rgba(0,0,0,0.55), 0 8px 16px rgba(0,0,0,0.25);
+      z-index: 5;
+    }
+
+    /* tape corners */
+    .pin-card::before, .pin-card::after {
+      content: '';
+      position: absolute;
+      width: 60px; height: 20px;
+      background: var(--tape);
+      backdrop-filter: blur(1px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .pin-card::before { top: -8px; left: 18px; transform: rotate(-18deg); }
+    .pin-card::after  { top: -8px; right: 18px; transform: rotate(15deg); }
+
+    .pin-card-photo {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: var(--ink-darker);
+    }
+    .pin-card-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .pin-card:hover .pin-card-photo img { transform: scale(1.05); }
+
+    .pin-card-overlay {
+      position: absolute; inset: 0;
+      padding: 22px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      background: linear-gradient(180deg, rgba(20,16,10,0) 0%, rgba(20,16,10,0.35) 50%, rgba(20,16,10,0.92) 100%);
+    }
+
+    .pin-card-eyebrow {
+      align-self: flex-start;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      padding: 5px 11px;
+      background: var(--brass-bright);
+      color: var(--ink-deep);
+      text-transform: uppercase;
+      border: 1px solid var(--brass-deep);
+    }
+
+    .pin-card-bottom {
+      color: var(--parchment-light);
+    }
+
+    .pin-card-title {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 22px;
+      letter-spacing: 3px;
+      color: var(--parchment-light);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pin-card-title em {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      color: var(--brass-bright);
+      letter-spacing: 0;
+      text-transform: lowercase;
+      font-size: 0.7em;
+      display: block;
+      margin-top: 4px;
+    }
+    .pin-card-meta {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--parchment-dark);
+      letter-spacing: 1px;
+    }
+
+    .pin-card-caption {
+      padding: 14px 4px 0;
+      text-align: center;
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--ink-soft);
+      letter-spacing: 1px;
+    }
+
+    /* ═══════════════════════════════════════════
+       REELS — Video clips section (Tequila / Xmas)
+    ═══════════════════════════════════════════ */
+    .reels {
+      padding: 110px 24px;
+      background: var(--ink-darker);
+      color: var(--parchment);
+      position: relative;
+    }
+    .reels .section-eyebrow { color: var(--brass-bright); }
+    .reels .section-title { color: var(--parchment-light); }
+    .reels .section-title em { color: var(--brass-bright); }
+    .reels .section-sub { color: var(--parchment-dark); opacity: 0.85; }
+
+    .reels-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 50px auto 0;
+    }
+    @media (max-width: 820px) { .reels-grid { grid-template-columns: 1fr; gap: 30px; } }
+
+    .reel-frame {
+      position: relative;
+      background: linear-gradient(145deg, #2a1d10 0%, #1a1108 50%, #14100a 100%);
+      padding: 22px;
+      border: 1px solid var(--brass-deep);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(184,142,58,0.18);
+    }
+    .reel-frame::before, .reel-frame::after,
+    .reel-frame > .corner {
+      content: '';
+      position: absolute;
+      width: 22px; height: 22px;
+      border: 1px solid var(--brass-bright);
+      opacity: 0.7;
+    }
+    .reel-frame::before { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+    .reel-frame::after  { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+    .reel-frame .corner.bl { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+    .reel-frame .corner.br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+    .reel-screen {
+      position: relative;
+      aspect-ratio: 9 / 16;
+      max-height: 580px;
+      max-width: 340px;
+      margin: 0 auto;
+      background: black;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .reel-screen video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .reel-screen::after {
+      content: '';
+      position: absolute; inset: 0;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(to bottom,
+          rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px,
+          rgba(0,0,0,0.07) 3px, rgba(0,0,0,0) 4px),
+        radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.5) 100%);
+    }
+
+    .reel-plate {
+      position: absolute;
+      bottom: -16px; left: 50%; transform: translateX(-50%);
+      background: var(--brass-bright);
+      color: var(--ink-deep);
+      font-family: 'IM Fell English SC', serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      padding: 7px 22px;
+      border: 1px solid var(--brass-deep);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+      white-space: nowrap;
+    }
+
+    .reel-caption {
+      text-align: center;
+      margin-top: 36px;
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      color: var(--parchment-dark);
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEASONAL / ANNUAL
+    ═══════════════════════════════════════════ */
+    .seasonal {
+      padding: 110px 24px;
+    }
+    .seasonal-inner { max-width: 1180px; margin: 0 auto; }
+
+    .seasonal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      margin-top: 30px;
+    }
+    @media (max-width: 820px) { .seasonal-grid { grid-template-columns: 1fr; } }
+
+    .season-card {
+      position: relative;
+      background: var(--parchment-light);
+      border: 2px solid var(--ink-soft);
+      padding: 0;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+    }
+    .season-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 60px rgba(0,0,0,0.28);
+    }
+
+    .season-photo {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--ink-deep);
+    }
+    .season-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .season-card:hover .season-photo img { transform: scale(1.04); }
+
+    .season-photo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(20,16,10,0) 30%, rgba(20,16,10,0.5) 100%);
+      pointer-events: none;
+    }
+
+    .season-badge {
+      position: absolute;
+      top: 18px; left: 18px;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      padding: 6px 14px;
+      background: var(--burgundy);
+      color: var(--parchment-light);
+      border: 1px solid var(--burgundy-deep);
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .season-body { padding: 28px 30px 30px; }
+
+    .season-title {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 26px;
+      letter-spacing: 3px;
+      color: var(--ink);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+    .season-title em {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      color: var(--brass);
+      letter-spacing: 1px;
+      text-transform: lowercase;
+    }
+
+    .season-meta {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--brass);
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .season-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    /* ═══════════════════════════════════════════
+       LIVE MUSIC CALENDAR
+    ═══════════════════════════════════════════ */
+    .calendar-section {
+      padding: 110px 24px;
+      background: var(--olive-deep);
+      color: var(--parchment);
+      position: relative;
+      overflow: hidden;
+    }
+    .calendar-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(184,142,58,0.10) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(90,31,28,0.18) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .calendar-section .section-eyebrow { color: var(--brass-bright); }
+    .calendar-section .section-title { color: var(--parchment-light); }
+    .calendar-section .section-title em { color: var(--brass-bright); }
+    .calendar-section .section-sub { color: var(--parchment-dark); opacity: 0.85; }
+
+    .calendar-inner { max-width: 980px; margin: 0 auto; position: relative; z-index: 2; }
+
+    .calendar-top {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 50px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    @media (max-width: 820px) { .calendar-top { grid-template-columns: 1fr; gap: 30px; } }
+
+    .calendar-list { list-style: none; }
+    .calendar-row {
+      display: grid;
+      grid-template-columns: 90px 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px dashed rgba(184,142,58,0.35);
+      transition: padding 0.3s ease;
+    }
+    .calendar-row:last-child { border-bottom: none; }
+    .calendar-row:hover { padding-left: 12px; }
+
+    .calendar-date {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 15px;
+      letter-spacing: 3px;
+      color: var(--brass-bright);
+      text-transform: uppercase;
+      line-height: 1.05;
+    }
+    .calendar-date strong {
+      display: block;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 32px;
+      letter-spacing: 1px;
+      color: var(--parchment-light);
+      font-weight: 400;
+    }
+
+    .calendar-artist {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 22px;
+      letter-spacing: 3px;
+      color: var(--parchment-light);
+      text-transform: uppercase;
+    }
+    .calendar-artist em {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      display: block;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: var(--parchment-dark);
+      text-transform: lowercase;
+      margin-top: 4px;
+    }
+
+    .calendar-mini-cta {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--brass-bright);
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid var(--brass-bright);
+      transition: all 0.2s;
+    }
+    .calendar-mini-cta:hover { background: var(--brass-bright); color: var(--ink-deep); }
+
+    .calendar-photo {
+      position: relative;
+      padding: 12px 12px 38px;
+      background: var(--parchment-light);
+      transform: rotate(3deg);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .calendar-photo:hover { transform: rotate(0deg) scale(1.03); }
+    .calendar-photo img {
+      width: 100%; height: 100%; aspect-ratio: 3/4;
+      object-fit: cover; display: block;
+    }
+    .calendar-photo-caption {
+      position: absolute;
+      bottom: 10px; left: 0; right: 0;
+      text-align: center;
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    /* ═══════════════════════════════════════════
+       PRIVATE EVENTS / CLOSER
+    ═══════════════════════════════════════════ */
+    .private {
+      position: relative;
+      padding: 130px 24px;
+      text-align: center;
+      overflow: hidden;
+      color: var(--parchment);
+    }
+    .private-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.32) saturate(1.05);
+    }
+    .private::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, transparent 0%, rgba(10,8,5,0.7) 100%);
+    }
+    .private-inner {
+      position: relative; z-index: 2;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .private-eyebrow {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--brass-bright);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .private-title {
+      font-family: 'IM Fell English SC', serif;
+      font-size: clamp(36px, 5.5vw, 56px);
+      letter-spacing: 4px;
+      color: var(--parchment-light);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .private-title em {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      color: var(--brass-bright);
+      letter-spacing: 1px;
+      text-transform: lowercase;
+    }
+    .private-sub {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 19px;
+      color: var(--parchment);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.55;
+    }
+
+    /* ═══════════════════════════════════════════
+       INFO
+    ═══════════════════════════════════════════ */
+    .info {
+      padding: 90px 24px 70px;
+      border-top: 1px solid rgba(138,100,32,0.25);
+    }
+    .info-grid {
+      max-width: 920px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      text-align: center;
+    }
+    @media (max-width: 720px) { .info-grid { grid-template-columns: 1fr; gap: 36px; } }
+    .info-label {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 12px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 16px;
+    }
+    .info-block p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .info-block a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(138,100,32,0.4);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .info-block a:hover { color: var(--brass); border-color: var(--brass); }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    .footer {
+      background: var(--ink-deep);
+      padding: 40px 24px 44px;
+      text-align: center;
+      border-top: 1px solid rgba(184,142,58,0.25);
+    }
+    .footer img { height: 36px; margin-bottom: 14px; opacity: 0.95; }
+    .footer-tag {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 11px;
+      letter-spacing: 6px;
+      color: var(--brass-bright);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .footer-meta {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 12px;
+      color: var(--parchment-dark);
+      opacity: 0.7;
+      letter-spacing: 1px;
+    }
+    .footer a { color: var(--brass-bright); text-decoration: none; }
+
+    .policy {
+      padding: 18px 24px;
+      text-align: center;
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      border-top: 1px solid rgba(138,100,32,0.18);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <nav class="topbar">
+    <a href="https://www.vintagebookshawaii.com/" class="topbar-mark" aria-label="Vintage Books"><img src="vb-logo-cream.png" alt="Vintage Books"></a>
+    <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="topbar-cta">Reserve</a>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Vintage Books · Honolulu</p>
+      <h1 class="hero-title">What's <em>on</em><br>This Week.</h1>
+      <div class="hero-divider"><span></span><span>✦</span><span></span></div>
+      <p class="hero-tagline">Live music behind the bookshelf. $30 wine flights on a Monday. Tequila Tuesday under a copper ceiling. Trivia in the Private Collection lounge. Every night, a different evening &mdash; same hidden room in Kaimuki.</p>
+
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-num">7</span><span class="hero-stat-label">Recurring Nights</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">12+</span><span class="hero-stat-label">Themed Events</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">∞</span><span class="hero-stat-label">Stories Told</span></div>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#week" class="btn btn-brass">See This Week</a>
+        <a href="#upcoming" class="btn btn-ghost">Upcoming Events</a>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span class="scroll-hint-text">Step Inside</span>
+      <div class="scroll-hint-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══ THE WEEK ═══ -->
+  <section class="week" id="week">
+    <div class="week-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">The Standing Calendar</p>
+        <h2 class="section-title">Every <em>week,</em><br>A different ritual.</h2>
+        <p class="section-sub">Four recurring nights in the back lounge &mdash; each with its own pour, plate, and pace.</p>
+      </div>
+
+      <div class="week-grid">
+
+        <!-- MONDAY · Wine Down Mondays -->
+        <article class="day-card">
+          <div class="day-card-media">
+            <img src="assets/wine-tastings/img-9256.jpg" alt="Wine glasses at a Vintage Books wine tasting" loading="lazy">
+            <span class="day-card-tag">Recurring</span>
+            <span class="day-card-day">Mondays</span>
+          </div>
+          <div class="day-card-body">
+            <h3 class="day-card-name">Wine Down <em>Mondays</em></h3>
+            <p class="day-card-desc">A slower start to the week. Rotating featured winery, 25% off everything pourable, and a flight worth the slow read.</p>
+            <ul class="day-card-perks">
+              <li>25% off all bottles &amp; glasses</li>
+              <li>Monthly rotating featured winery</li>
+              <li>4-wine flight &mdash; $30</li>
+              <li>Members: exclusive access to limited bottles</li>
+            </ul>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="day-card-cta">Reserve a Table</a>
+          </div>
+        </article>
+
+        <!-- TUESDAY · Tequila Tuesdays -->
+        <article class="day-card">
+          <div class="day-card-media">
+            <video autoplay muted loop playsinline preload="metadata" poster="">
+              <source src="assets/tequila-tuesdays/tequila-tuesdays-vb.mp4" type="video/mp4">
+            </video>
+            <span class="day-card-tag">Recurring</span>
+            <span class="day-card-day">Tuesdays</span>
+          </div>
+          <div class="day-card-body">
+            <h3 class="day-card-name">Tequila <em>Tuesdays</em></h3>
+            <p class="day-card-desc">Mezcal, blanco, reposado, añejo. Shaken, neat, or stirred &mdash; agave gets the spotlight every Tuesday under the copper ceiling.</p>
+            <ul class="day-card-perks">
+              <li>Featured tequila &amp; mezcal pours</li>
+              <li>Tasting flights at the bar</li>
+              <li>Specialty cocktails from the back-bar</li>
+              <li>Late-night menu through close</li>
+            </ul>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="day-card-cta">Reserve a Table</a>
+          </div>
+        </article>
+
+        <!-- WEDNESDAY · Live Music -->
+        <article class="day-card">
+          <div class="day-card-media">
+            <img src="assets/live-music/img-0839.jpg" alt="Live music at Vintage Books" loading="lazy">
+            <span class="day-card-tag">Weekly</span>
+            <span class="day-card-day">Wednesdays</span>
+          </div>
+          <div class="day-card-body">
+            <h3 class="day-card-name">Live Music <em>in the Lounge</em></h3>
+            <p class="day-card-desc">7&ndash;9PM, every Wednesday. Local artists, intimate set, a velvet booth, and a cocktail you'll remember the next day.</p>
+            <ul class="day-card-perks">
+              <li>Local Honolulu artists, rotating weekly</li>
+              <li>7&ndash;9 PM intimate set</li>
+              <li>Full bar &amp; small plates</li>
+              <li>No cover &mdash; reserve early</li>
+            </ul>
+            <a href="#calendar" class="day-card-cta">See June Lineup</a>
+          </div>
+        </article>
+
+        <!-- TRIVIA -->
+        <article class="day-card">
+          <div class="day-card-media">
+            <img src="assets/trivia-night/img-8349.jpg" alt="Trivia night at Vintage Books" loading="lazy">
+            <span class="day-card-tag">Recurring</span>
+            <span class="day-card-day">Trivia Night</span>
+          </div>
+          <div class="day-card-body">
+            <h3 class="day-card-name">Trivia <em>Night</em></h3>
+            <p class="day-card-desc">Speedquizing in the Private Collection lounge. Bring your friends and your brain power for an unforgettable night.</p>
+            <ul class="day-card-perks">
+              <li>$10 to play</li>
+              <li>Speedquizing format &middot; prizes</li>
+              <li>Private Collection lounge</li>
+              <li>Limited seating &mdash; ask about dates</li>
+            </ul>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="day-card-cta">Reserve a Seat</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NOW PLAYING — featured upcoming ═══ -->
+  <section class="section" id="upcoming">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Now Playing</p>
+        <h2 class="section-title">Upcoming <em>features.</em></h2>
+        <p class="section-sub">The one-night-only evenings &mdash; ticketed seatings, special menus, things you'll mention for months after.</p>
+      </div>
+
+      <div class="ornament-row"><span></span><span class="mark">✦</span><span></span></div>
+
+      <div class="featured-grid">
+
+        <!-- VOICES OF HAWAI'I -->
+        <article class="featured">
+          <div class="featured-photo-stack">
+            <div class="featured-photo back">
+              <img src="assets/havana-night/img-5544.jpg" alt="A literary evening at Vintage Books" loading="lazy">
+              <p class="featured-photo-caption">A literary evening</p>
+            </div>
+            <div class="featured-photo front">
+              <img src="assets/wine-tastings/img-9249.jpg" alt="An immersive author dinner at Vintage Books" loading="lazy">
+              <p class="featured-photo-caption">Storytelling &amp; supper</p>
+            </div>
+          </div>
+          <div class="featured-body">
+            <span class="featured-stamp upcoming">★ Ticketed Event</span>
+            <p class="featured-date">Tuesday · June 16</p>
+            <h3 class="featured-name">Voices of Hawai'i<em>an immersive experience</em></h3>
+            <p class="featured-byline">— With author Jane Goodsill —</p>
+            <p class="featured-desc">An intimate exploration of her acclaimed series. More than a reading &mdash; a sensory journey through the spirit of the islands, served at the table. A portion of proceeds supports Read to Me International.</p>
+            <ul class="featured-details">
+              <li><strong>Seatings</strong> 5:00 PM &amp; 7:30 PM</li>
+              <li><strong>Tickets</strong> $35 — includes a free book, live music, author reading, goodie bag &amp; complimentary appetizers</li>
+              <li><strong>Benefits</strong> Read to Me International</li>
+            </ul>
+            <a href="mailto:hello@vintagebookshawaii.com?subject=Voices%20of%20Hawai%27i%20Tickets" class="btn btn-dark">Reserve Tickets</a>
+          </div>
+        </article>
+
+        <!-- GENTLEMAN'S DINNER -->
+        <article class="featured flip">
+          <div class="featured-photo-stack">
+            <div class="featured-photo back">
+              <img src="assets/live-music/img-8903.jpg" alt="Whiskey at Vintage Books" loading="lazy">
+              <p class="featured-photo-caption">Whiskey on the rocks</p>
+            </div>
+            <div class="featured-photo front">
+              <img src="assets/brunch/img-0581.jpg" alt="A perfectly grilled steak at Vintage Books" loading="lazy">
+              <p class="featured-photo-caption">A tomahawk to share</p>
+            </div>
+          </div>
+          <div class="featured-body">
+            <span class="featured-stamp upcoming">★ Monthly Series</span>
+            <p class="featured-date">Tuesday · July 7</p>
+            <h3 class="featured-name">The Gentleman's<br>Dinner<em>good whiskey · great steak · better company</em></h3>
+            <p class="featured-byline">— An evening of great company, fine whiskey &amp; exceptional steak —</p>
+            <p class="featured-desc">Curated whiskey flights for the modern gentleman. A tomahawk board built for two. The kind of room where the conversation is half the meal.</p>
+            <ul class="featured-details">
+              <li><strong>Hours</strong> 4:00 PM &ndash; 10:00 PM</li>
+              <li><strong>Features</strong> Whiskey flight selections · Tomahawk for two · Curated bar bites</li>
+              <li><strong>Tagline</strong> Good Whiskey. Great Steak. Better Company.</li>
+            </ul>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="btn btn-dark">Reserve Your Table</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ THEMED NIGHTS — pinboard ═══ -->
+  <section class="themed-section" id="themed">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">From the Archives</p>
+        <h2 class="section-title">Themed <em>Nights &amp;</em><br>House Specials.</h2>
+        <p class="section-sub">Themed evenings the regulars whisper about. Some recur seasonally &mdash; some only when the right night calls for it.</p>
+      </div>
+
+      <div class="pinboard">
+
+        <!-- HAVANA NIGHT -->
+        <article class="pin-card">
+          <div class="pin-card-photo">
+            <img src="assets/havana-night/img-5542.jpg" alt="Havana Night at Vintage Books" loading="lazy">
+            <div class="pin-card-overlay">
+              <span class="pin-card-eyebrow">Themed Night</span>
+              <div class="pin-card-bottom">
+                <h3 class="pin-card-title">Havana <em>Night</em></h3>
+                <p class="pin-card-meta">Cuban rhythm · Cuban rum · linen &amp; lace welcome</p>
+              </div>
+            </div>
+          </div>
+          <p class="pin-card-caption">Dress for the dance floor.</p>
+        </article>
+
+        <!-- GIRL DINNER -->
+        <article class="pin-card">
+          <div class="pin-card-photo">
+            <img src="assets/girl-dinner/92072d7a-3332-4077-8c53-7e8ce5b9294c.jpg" alt="Girl Dinner at Vintage Books" loading="lazy">
+            <div class="pin-card-overlay">
+              <span class="pin-card-eyebrow">Themed Night</span>
+              <div class="pin-card-bottom">
+                <h3 class="pin-card-title">Girl <em>Dinner</em></h3>
+                <p class="pin-card-meta">An evening assembled, not ordered &mdash; small plates, big company</p>
+              </div>
+            </div>
+          </div>
+          <p class="pin-card-caption">"Whatever our souls are made of..."</p>
+        </article>
+
+        <!-- MOORE ALOHA -->
+        <article class="pin-card">
+          <div class="pin-card-photo">
+            <img src="assets/moore-aloha/img-9046.jpg" alt="Moore Aloha event at Vintage Books" loading="lazy">
+            <div class="pin-card-overlay">
+              <span class="pin-card-eyebrow">Partner Series</span>
+              <div class="pin-card-bottom">
+                <h3 class="pin-card-title">Moore <em>Aloha</em></h3>
+                <p class="pin-card-meta">A celebration of community &amp; the women who hold it up</p>
+              </div>
+            </div>
+          </div>
+          <p class="pin-card-caption">By &amp; for the Honolulu community.</p>
+        </article>
+
+        <!-- WINE TASTINGS -->
+        <article class="pin-card">
+          <div class="pin-card-photo">
+            <img src="assets/wine-tastings/2e7b3f65-f09c-430e-84d7-e52cb22d2cfa.jpg" alt="Wine tasting at Vintage Books" loading="lazy">
+            <div class="pin-card-overlay">
+              <span class="pin-card-eyebrow">Special Tasting</span>
+              <div class="pin-card-bottom">
+                <h3 class="pin-card-title">Wine <em>Tastings</em></h3>
+                <p class="pin-card-meta">Guided flights · winemaker dinners · members' first taste</p>
+              </div>
+            </div>
+          </div>
+          <p class="pin-card-caption">Glasses fill, conversations follow.</p>
+        </article>
+
+        <!-- BRUNCH (cross-promo) -->
+        <article class="pin-card">
+          <div class="pin-card-photo">
+            <img src="assets/brunch/img-9094.jpg" alt="Weekend brunch at Vintage Books" loading="lazy">
+            <div class="pin-card-overlay">
+              <span class="pin-card-eyebrow">Weekends</span>
+              <div class="pin-card-bottom">
+                <h3 class="pin-card-title">Weekend <em>Brunch</em></h3>
+                <p class="pin-card-meta">Sat &amp; Sun · 10 AM &ndash; 2 PM · slow mornings, properly rewarded</p>
+              </div>
+            </div>
+          </div>
+          <p class="pin-card-caption">Read this chapter at the table.</p>
+        </article>
+
+        <!-- TRIVIA cross-link -->
+        <article class="pin-card">
+          <div class="pin-card-photo">
+            <img src="assets/trivia-night/img-9379.jpg" alt="Trivia Night lounge" loading="lazy">
+            <div class="pin-card-overlay">
+              <span class="pin-card-eyebrow">Quiz · Game · Fun</span>
+              <div class="pin-card-bottom">
+                <h3 class="pin-card-title">Trivia <em>Night</em></h3>
+                <p class="pin-card-meta">In the Private Collection lounge · $10 to play</p>
+              </div>
+            </div>
+          </div>
+          <p class="pin-card-caption">Bring the brain. We'll bring the prizes.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LIVE MUSIC CALENDAR ═══ -->
+  <section class="calendar-section" id="calendar">
+    <div class="calendar-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Live Music · June 2026</p>
+        <h2 class="section-title">This <em>month's</em><br>Lineup.</h2>
+        <p class="section-sub">Wednesdays · 7&ndash;9 PM · in the lounge.</p>
+      </div>
+
+      <div class="calendar-top">
+        <ul class="calendar-list">
+          <li class="calendar-row">
+            <div class="calendar-date">June<strong>03</strong></div>
+            <div class="calendar-artist">Izik<em>solo guitar &amp; vocals</em></div>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="calendar-mini-cta">Reserve</a>
+          </li>
+          <li class="calendar-row">
+            <div class="calendar-date">June<strong>10</strong></div>
+            <div class="calendar-artist">Connor Johnson<em>singer-songwriter</em></div>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="calendar-mini-cta">Reserve</a>
+          </li>
+          <li class="calendar-row">
+            <div class="calendar-date">June<strong>17</strong></div>
+            <div class="calendar-artist">Zaysha<em>soul &amp; r&amp;b</em></div>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="calendar-mini-cta">Reserve</a>
+          </li>
+          <li class="calendar-row">
+            <div class="calendar-date">June<strong>24</strong></div>
+            <div class="calendar-artist">Lina Robins<em>jazz standards &amp; originals</em></div>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="calendar-mini-cta">Reserve</a>
+          </li>
+        </ul>
+
+        <div class="calendar-photo">
+          <img src="assets/live-music/img-8904.jpg" alt="Live music in the Vintage Books lounge" loading="lazy">
+          <p class="calendar-photo-caption">In the lounge · 7&ndash;9 PM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REELS — Tequila + Christmas video ═══ -->
+  <section class="reels">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Step Behind the Bookshelf</p>
+        <h2 class="section-title">Two <em>reels.</em></h2>
+        <p class="section-sub">A taste of the room when the lights go down &mdash; pulled straight from the floor.</p>
+      </div>
+
+      <div class="reels-grid">
+        <div>
+          <div class="reel-frame">
+            <span class="corner bl"></span><span class="corner br"></span>
+            <div class="reel-screen">
+              <video autoplay muted loop playsinline preload="metadata" poster="assets/havana-night/img-5542.jpg">
+                <source src="assets/tequila-tuesdays/tequila-tuesdays-vb.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="reel-plate">Tequila Tuesdays</div>
+          </div>
+          <p class="reel-caption">The agave nights, every Tuesday.</p>
+        </div>
+
+        <div>
+          <div class="reel-frame">
+            <span class="corner bl"></span><span class="corner br"></span>
+            <div class="reel-screen">
+              <video muted playsinline preload="none" poster="assets/christmas/poster.jpg" controls>
+                <source src="assets/christmas/bts-christmas-decorating.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="reel-plate">Decking the Speakeasy</div>
+          </div>
+          <p class="reel-caption">Behind-the-scenes · the holiday transformation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SEASONAL ═══ -->
+  <section class="seasonal">
+    <div class="seasonal-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Seasonal Traditions</p>
+        <h2 class="section-title">Special <em>occasions,</em><br>Properly hosted.</h2>
+        <p class="section-sub">Annual evenings the regulars plan their year around.</p>
+      </div>
+
+      <div class="seasonal-grid">
+
+        <article class="season-card">
+          <div class="season-photo">
+            <img src="assets/mothers-day/img-9112.jpg" alt="Mother's Day at Vintage Books" loading="lazy">
+            <span class="season-badge">Annual · May</span>
+            <div class="season-photo-overlay"></div>
+          </div>
+          <div class="season-body">
+            <h3 class="season-title">Mother's Day <em>at Vintage Books</em></h3>
+            <p class="season-meta">— A celebration for the women who hold the page —</p>
+            <p class="season-desc">A special seating, a curated menu, and the kind of room that says <em>thank you</em> properly. Watch for the May announcement.</p>
+          </div>
+        </article>
+
+        <article class="season-card">
+          <div class="season-photo">
+            <video muted autoplay loop playsinline preload="metadata">
+              <source src="assets/christmas/bts-christmas-decorating.mp4" type="video/mp4">
+            </video>
+            <span class="season-badge">Annual · December</span>
+            <div class="season-photo-overlay"></div>
+          </div>
+          <div class="season-body">
+            <h3 class="season-title">A Vintage <em>Christmas</em></h3>
+            <p class="season-meta">— The speakeasy, dressed for the season —</p>
+            <p class="season-desc">Every December, the lounge transforms. Garland on the bookshelves, hot toddies on the menu, and a tree that wasn't quite there yesterday. Holiday parties &amp; family bookings open from November.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRIVATE EVENTS ═══ -->
+  <section class="private">
+    <img class="private-bg" src="assets/havana-night/img-5544.jpg" alt="" loading="lazy">
+    <div class="private-inner">
+      <p class="private-eyebrow">— Private Events —</p>
+      <h2 class="private-title">Host It <em>here.</em></h2>
+      <p class="private-sub">Birthdays, milestones, corporate evenings, full buy-outs of the Private Collection lounge &mdash; if the night matters, the room can match it.</p>
+      <a href="https://www.vintagebookshawaii.com/contact" class="btn btn-brass">Inquire About a Private Event</a>
+    </div>
+  </section>
+
+  <!-- ═══ INFO ═══ -->
+  <section class="info">
+    <div class="info-grid">
+      <div class="info-block">
+        <p class="info-label">The Hours</p>
+        <p>Tue &ndash; Sun · 5PM &ndash; late<br>Brunch: Sat &amp; Sun 10 AM &ndash; 2 PM<br>Closed Mondays for private</p>
+      </div>
+      <div class="info-block">
+        <p class="info-label">Find Us</p>
+        <p><a href="https://maps.google.com/?q=3660+Waialae+Ave+Suite+101+Honolulu+HI+96816" target="_blank" rel="noopener">3660 Waialae Ave, Suite 101<br>Honolulu, HI 96816</a></p>
+        <p style="margin-top:6px;"><a href="tel:8087364917">808-736-4917</a></p>
+      </div>
+      <div class="info-block">
+        <p class="info-label">Stay in Touch</p>
+        <p><a href="https://www.instagram.com/vintagebookshawaii/" target="_blank" rel="noopener">@vintagebookshawaii</a></p>
+        <p style="margin-top:6px;"><a href="https://www.vintagebookshawaii.com/" target="_blank" rel="noopener">vintagebookshawaii.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLICY -->
+  <div class="policy">
+    Cashless policy in effect &nbsp;&middot;&nbsp; Validated parking &nbsp;&middot;&nbsp; Guests must be 21+ after 7PM
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img src="vb-logo-cream.png" alt="Vintage Books">
+    <p class="footer-tag">★ Vintage Books · Honolulu ★</p>
+    <p class="footer-meta">&copy; 2026 Vintage Books Hawaii &nbsp;&middot;&nbsp; <a href="https://www.vintagebookshawaii.com/">vintagebookshawaii.com</a></p>
+  </footer>
+
+</body>
+</html>
