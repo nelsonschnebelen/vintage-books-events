@@ -11,9 +11,28 @@
   <link rel="icon" href="vb-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Brand base fonts (Vintage Books Hawaii): Literata = headings/serif accents, Atkinson Hyperlegible Next = body -->
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,500;1,7..72,600&display=swap" rel="stylesheet">
 
   <style>
+    /* ─── BRAND DISPLAY FONTS (Vintage Books Hawaii) ───
+       Maison Voyages Caps — primary display / signature headings (brand h1)
+       Ten Pounds          — bold section banners (brand h2)               */
+    @font-face {
+      font-family: 'Maison Voyages Caps';
+      src: url('assets/fonts/MaisonVoyages-CapsRegular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ten Pounds';
+      src: url('assets/fonts/TenPounds-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
@@ -38,7 +57,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
+      font-family: 'Atkinson Hyperlegible Next', -apple-system, sans-serif;
       background: url('parchment.jpg') repeat;
       background-size: 1400px auto;
       color: var(--ink);
@@ -47,9 +66,9 @@
       overflow-x: hidden;
     }
 
-    .serif  { font-family: 'Cormorant Garamond', Georgia, serif; }
-    .display { font-family: 'IM Fell English SC', 'Cormorant Garamond', serif; }
-    .display-it { font-family: 'IM Fell English', 'Cormorant Garamond', serif; font-style: italic; }
+    .serif  { font-family: 'Literata', Georgia, serif; }
+    .display { font-family: 'Maison Voyages Caps', 'Literata', serif; }
+    .display-it { font-family: 'Literata', Georgia, serif; font-style: italic; }
 
     /* ─── FILM GRAIN OVERLAY ─── */
     body::before {
@@ -96,7 +115,7 @@
       justify-content: center;
     }
     .topbar-nav a {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 12px;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -117,7 +136,7 @@
     }
 
     .topbar-cta {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Atkinson Hyperlegible Next', sans-serif;
       font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -248,7 +267,7 @@
 
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 16px;
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 14px;
       letter-spacing: 6px;
@@ -265,7 +284,7 @@
     .hero-eyebrow::after { background: linear-gradient(to left, transparent, var(--brass-bright)); }
 
     .hero-title {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: clamp(50px, 9vw, 116px);
       line-height: 0.92;
       letter-spacing: 4px;
@@ -274,7 +293,7 @@
       margin-bottom: 14px;
     }
     .hero-title em {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       color: var(--brass-bright);
       letter-spacing: 0;
@@ -295,13 +314,13 @@
     .hero-divider span:last-child { background: linear-gradient(to left, transparent, var(--brass-bright)); }
     .hero-divider span:nth-child(2) {
       color: var(--brass-bright);
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 16px;
     }
 
     .hero-tagline {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: clamp(18px, 2.2vw, 22px);
       color: var(--parchment);
@@ -324,7 +343,7 @@
     }
     .hero-stat-num {
       display: block;
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 38px;
       letter-spacing: 2px;
       color: var(--brass-bright);
@@ -332,7 +351,7 @@
       margin-bottom: 6px;
     }
     .hero-stat-label {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 11px;
       letter-spacing: 3px;
@@ -347,7 +366,7 @@
 
     .btn {
       display: inline-block;
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 13px;
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -398,7 +417,7 @@
       pointer-events: none;
     }
     .scroll-hint-text {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 11px;
       letter-spacing: 5px;
@@ -434,7 +453,7 @@
     }
 
     .section-eyebrow {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 14px;
       letter-spacing: 5px;
@@ -451,7 +470,7 @@
     }
 
     .section-title {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Ten Pounds', 'Maison Voyages Caps', serif;
       font-size: clamp(38px, 5.5vw, 64px);
       letter-spacing: 4px;
       color: var(--ink);
@@ -460,7 +479,7 @@
       margin-bottom: 16px;
     }
     .section-title em {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       color: var(--brass);
       letter-spacing: 1px;
@@ -468,7 +487,7 @@
     }
 
     .section-sub {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: clamp(17px, 2vw, 20px);
       color: var(--muted);
@@ -489,7 +508,7 @@
     .ornament-row span:last-child { background: linear-gradient(to left, transparent, var(--brass)); }
     .ornament-row .mark {
       color: var(--brass);
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 14px;
       letter-spacing: 4px;
@@ -574,7 +593,7 @@
     .day-card-tag {
       position: absolute;
       top: 14px; left: 14px;
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 10px;
       letter-spacing: 3px;
       padding: 6px 12px;
@@ -587,7 +606,7 @@
     .day-card-day {
       position: absolute;
       bottom: 14px; left: 14px;
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 14px;
       letter-spacing: 4px;
       color: var(--brass-bright);
@@ -601,7 +620,7 @@
     }
 
     .day-card-name {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 22px;
       letter-spacing: 2px;
       color: var(--parchment-light);
@@ -611,7 +630,7 @@
     }
 
     .day-card-name em {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       color: var(--brass-bright);
       letter-spacing: 0;
@@ -619,7 +638,7 @@
     }
 
     .day-card-desc {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 16px;
       color: var(--parchment-dark);
@@ -633,7 +652,7 @@
       margin-bottom: 18px;
     }
     .day-card-perks li {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Literata', serif;
       font-size: 14px;
       color: var(--parchment);
       padding: 4px 0 4px 16px;
@@ -649,7 +668,7 @@
     }
 
     .day-card-cta {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 11px;
       letter-spacing: 3px;
       color: var(--brass-bright);
@@ -712,7 +731,7 @@
       background:
         repeating-linear-gradient(45deg, #d4c8a4 0 12px, #ece2c8 12px 24px);
       color: var(--ink-soft);
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 16px;
       letter-spacing: 2px;
@@ -729,7 +748,7 @@
       background:
         repeating-linear-gradient(45deg, rgba(184,142,58,0.18) 0 12px, rgba(20,16,10,0.6) 12px 24px);
       color: var(--brass-bright);
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 14px;
       letter-spacing: 2px;
@@ -766,7 +785,7 @@
       position: absolute;
       bottom: 14px; left: 0; right: 0;
       text-align: center;
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 14px;
       color: var(--ink-soft);
@@ -787,7 +806,7 @@
 
     .featured-stamp {
       display: inline-block;
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 11px;
       letter-spacing: 5px;
       color: var(--ink-deep);
@@ -801,7 +820,7 @@
     .featured-stamp.recurring { background: var(--olive); color: var(--parchment-light); border-color: var(--olive-deep); }
 
     .featured-date {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 16px;
       letter-spacing: 6px;
       color: var(--brass);
@@ -810,7 +829,7 @@
     }
 
     .featured-name {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Ten Pounds', 'Maison Voyages Caps', serif;
       font-size: clamp(34px, 4.4vw, 52px);
       line-height: 1;
       letter-spacing: 3px;
@@ -819,7 +838,7 @@
       margin-bottom: 8px;
     }
     .featured-name em {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       color: var(--brass);
       letter-spacing: 1px;
@@ -830,7 +849,7 @@
     }
 
     .featured-byline {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 17px;
       color: var(--brass);
@@ -838,7 +857,7 @@
     }
 
     .featured-desc {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Literata', serif;
       font-size: clamp(16px, 1.7vw, 19px);
       color: var(--ink);
       line-height: 1.7;
@@ -855,12 +874,12 @@
     .featured-details li {
       display: flex; gap: 14px;
       padding: 6px 0;
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Literata', serif;
       font-size: 16px;
       color: var(--ink-soft);
     }
     .featured-details li strong {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 11px;
       letter-spacing: 3px;
       color: var(--brass);
@@ -958,7 +977,7 @@
 
     .pin-card-eyebrow {
       align-self: flex-start;
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 10px;
       letter-spacing: 3px;
       padding: 5px 11px;
@@ -973,7 +992,7 @@
     }
 
     .pin-card-title {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 22px;
       letter-spacing: 3px;
       color: var(--parchment-light);
@@ -982,7 +1001,7 @@
       margin-bottom: 4px;
     }
     .pin-card-title em {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       color: var(--brass-bright);
       letter-spacing: 0;
@@ -992,7 +1011,7 @@
       margin-top: 4px;
     }
     .pin-card-meta {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 13px;
       color: var(--parchment-dark);
@@ -1002,7 +1021,7 @@
     .pin-card-caption {
       padding: 14px 4px 0;
       text-align: center;
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 14px;
       color: var(--ink-soft);
@@ -1088,7 +1107,7 @@
       bottom: -16px; left: 50%; transform: translateX(-50%);
       background: var(--brass-bright);
       color: var(--ink-deep);
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 10px;
       letter-spacing: 4px;
       padding: 7px 22px;
@@ -1100,7 +1119,7 @@
     .reel-caption {
       text-align: center;
       margin-top: 36px;
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       color: var(--parchment-dark);
       font-size: 15px;
@@ -1155,7 +1174,7 @@
     .calendar-row:hover { padding-left: 12px; }
 
     .calendar-date {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 15px;
       letter-spacing: 3px;
       color: var(--brass-bright);
@@ -1164,7 +1183,7 @@
     }
     .calendar-date strong {
       display: block;
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 32px;
       letter-spacing: 1px;
       color: var(--parchment-light);
@@ -1172,14 +1191,14 @@
     }
 
     .calendar-artist {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 22px;
       letter-spacing: 3px;
       color: var(--parchment-light);
       text-transform: uppercase;
     }
     .calendar-artist em {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       display: block;
       font-size: 13px;
@@ -1190,7 +1209,7 @@
     }
 
     .calendar-mini-cta {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 10px;
       letter-spacing: 3px;
       color: var(--brass-bright);
@@ -1218,7 +1237,7 @@
       position: absolute;
       bottom: 10px; left: 0; right: 0;
       text-align: center;
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 13px;
       color: var(--ink-soft);
@@ -1258,7 +1277,7 @@
       margin: 0 auto;
     }
     .private-eyebrow {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 13px;
       color: var(--brass-bright);
@@ -1267,7 +1286,7 @@
       margin-bottom: 22px;
     }
     .private-title {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Ten Pounds', 'Maison Voyages Caps', serif;
       font-size: clamp(36px, 5.5vw, 56px);
       letter-spacing: 4px;
       color: var(--parchment-light);
@@ -1275,14 +1294,14 @@
       margin-bottom: 16px;
     }
     .private-title em {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       color: var(--brass-bright);
       letter-spacing: 1px;
       text-transform: lowercase;
     }
     .private-sub {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 19px;
       color: var(--parchment);
@@ -1308,7 +1327,7 @@
     }
     @media (max-width: 720px) { .info-grid { grid-template-columns: 1fr; gap: 36px; } }
     .info-label {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 12px;
       letter-spacing: 5px;
@@ -1317,7 +1336,7 @@
       margin-bottom: 16px;
     }
     .info-block p {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Literata', serif;
       font-size: 17px;
       color: var(--ink);
       line-height: 1.7;
@@ -1341,7 +1360,7 @@
     }
     .footer img { height: 36px; margin-bottom: 14px; opacity: 0.95; }
     .footer-tag {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
       font-size: 11px;
       letter-spacing: 6px;
       color: var(--brass-bright);
@@ -1349,7 +1368,7 @@
       text-transform: uppercase;
     }
     .footer-meta {
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 12px;
       color: var(--parchment-dark);
@@ -1361,7 +1380,7 @@
     .policy {
       padding: 18px 24px;
       text-align: center;
-      font-family: 'IM Fell English', serif;
+      font-family: 'Literata', serif;
       font-style: italic;
       font-size: 13px;
       color: var(--muted);
