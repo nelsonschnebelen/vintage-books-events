@@ -16,8 +16,8 @@
 
   <style>
     /* ─── BRAND DISPLAY FONTS (Vintage Books Hawaii) ───
-       Maison Voyages Caps — primary display / signature headings (brand h1)
-       Ten Pounds          — bold section banners (brand h2)               */
+       Ten Pounds          — romantic italic-serif display (brand h2): hero + all titles
+       Maison Voyages Caps — deco-caps eyebrows, labels & nav (brand h1)          */
     @font-face {
       font-family: 'Maison Voyages Caps';
       src: url('assets/fonts/MaisonVoyages-CapsRegular.otf') format('opentype');
@@ -267,8 +267,7 @@
 
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 16px;
-      font-family: 'Literata', serif;
-      font-style: italic;
+      font-family: 'Maison Voyages Caps', 'Literata', sans-serif;
       font-size: 14px;
       letter-spacing: 6px;
       text-transform: uppercase;
@@ -284,22 +283,17 @@
     .hero-eyebrow::after { background: linear-gradient(to left, transparent, var(--brass-bright)); }
 
     .hero-title {
-      font-family: 'Maison Voyages Caps', 'Literata', serif;
-      font-size: clamp(50px, 9vw, 116px);
-      line-height: 0.92;
-      letter-spacing: 4px;
-      text-transform: uppercase;
+      font-family: 'Ten Pounds', 'Literata', serif;
+      font-size: clamp(50px, 8.8vw, 112px);
+      line-height: 1.0;
+      letter-spacing: 0;
       color: var(--parchment-light);
       margin-bottom: 14px;
     }
     .hero-title em {
-      font-family: 'Literata', serif;
+      font-family: 'Ten Pounds', 'Literata', serif;
       font-style: italic;
       color: var(--brass-bright);
-      letter-spacing: 0;
-      text-transform: lowercase;
-      font-size: 0.6em;
-      display: inline-block;
     }
 
     .hero-divider {
@@ -453,8 +447,7 @@
     }
 
     .section-eyebrow {
-      font-family: 'Literata', serif;
-      font-style: italic;
+      font-family: 'Maison Voyages Caps', 'Literata', sans-serif;
       font-size: 14px;
       letter-spacing: 5px;
       text-transform: uppercase;
@@ -471,19 +464,16 @@
 
     .section-title {
       font-family: 'Ten Pounds', 'Maison Voyages Caps', serif;
-      font-size: clamp(38px, 5.5vw, 64px);
-      letter-spacing: 4px;
+      font-size: clamp(40px, 5.8vw, 68px);
+      letter-spacing: 0;
       color: var(--ink);
-      line-height: 1.05;
-      text-transform: uppercase;
+      line-height: 1.08;
       margin-bottom: 16px;
     }
     .section-title em {
-      font-family: 'Literata', serif;
+      font-family: 'Ten Pounds', 'Maison Voyages Caps', serif;
       font-style: italic;
       color: var(--brass);
-      letter-spacing: 1px;
-      text-transform: lowercase;
     }
 
     .section-sub {
@@ -620,21 +610,18 @@
     }
 
     .day-card-name {
-      font-family: 'Maison Voyages Caps', 'Literata', serif;
-      font-size: 22px;
-      letter-spacing: 2px;
+      font-family: 'Ten Pounds', 'Maison Voyages Caps', serif;
+      font-size: 28px;
+      letter-spacing: 0;
       color: var(--parchment-light);
       line-height: 1.1;
       margin-bottom: 8px;
-      text-transform: uppercase;
     }
 
     .day-card-name em {
-      font-family: 'Literata', serif;
+      font-family: 'Ten Pounds', 'Maison Voyages Caps', serif;
       font-style: italic;
       color: var(--brass-bright);
-      letter-spacing: 0;
-      text-transform: lowercase;
     }
 
     .day-card-desc {
@@ -829,11 +816,10 @@
 
     .featured-name {
       font-family: 'Ten Pounds', 'Maison Voyages Caps', serif;
-      font-size: clamp(34px, 4.4vw, 52px);
-      line-height: 1;
-      letter-spacing: 3px;
+      font-size: clamp(36px, 4.6vw, 54px);
+      line-height: 1.05;
+      letter-spacing: 0;
       color: var(--ink);
-      text-transform: uppercase;
       margin-bottom: 8px;
     }
     .featured-name em {
@@ -991,12 +977,11 @@
     }
 
     .pin-card-title {
-      font-family: 'Maison Voyages Caps', 'Literata', serif;
-      font-size: 22px;
-      letter-spacing: 3px;
+      font-family: 'Ten Pounds', 'Maison Voyages Caps', serif;
+      font-size: 28px;
+      letter-spacing: 0;
       color: var(--parchment-light);
-      text-transform: uppercase;
-      line-height: 1;
+      line-height: 1.05;
       margin-bottom: 4px;
     }
     .pin-card-title em {
@@ -1159,8 +1144,7 @@
       margin: 0 auto;
     }
     .private-eyebrow {
-      font-family: 'Literata', serif;
-      font-style: italic;
+      font-family: 'Maison Voyages Caps', 'Literata', sans-serif;
       font-size: 13px;
       color: var(--brass-bright);
       letter-spacing: 5px;
@@ -1169,18 +1153,16 @@
     }
     .private-title {
       font-family: 'Ten Pounds', 'Maison Voyages Caps', serif;
-      font-size: clamp(36px, 5.5vw, 56px);
-      letter-spacing: 4px;
+      font-size: clamp(38px, 5.8vw, 60px);
+      letter-spacing: 0;
       color: var(--parchment-light);
-      line-height: 1.05;
+      line-height: 1.08;
       margin-bottom: 16px;
     }
     .private-title em {
-      font-family: 'Literata', serif;
+      font-family: 'Ten Pounds', 'Maison Voyages Caps', serif;
       font-style: italic;
       color: var(--brass-bright);
-      letter-spacing: 1px;
-      text-transform: lowercase;
     }
     .private-sub {
       font-family: 'Literata', serif;
