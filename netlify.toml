@@ -1,0 +1,17 @@
+# Netlify configuration for the Vintage Books "What's On" events page.
+# Static HTML — no build step. Files are served straight from the repo root.
+
+[build]
+  publish = "."
+
+# Long-cache the self-hosted brand fonts (immutable, content-hashed by URL).
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache the flyer artwork and logos.
+[[headers]]
+  for = "/assets/flyers/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
