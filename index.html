@@ -1280,11 +1280,11 @@
       <p class="hero-eyebrow">Vintage Books · Honolulu</p>
       <h1 class="hero-title">What's <em>on</em><br>This Week.</h1>
       <div class="hero-divider"><span></span><span>✦</span><span></span></div>
-      <p class="hero-tagline">$30 wine flights on a Monday. Live jazz Tuesday under the lights. Singer-songwriters in the lounge Wednesday. Trivia in the Private Collection. An immersive author dinner. A whiskey-and-steak July night. Every evening, a different chapter &mdash; same hidden room in Kaimuki.</p>
+      <p class="hero-tagline">$30 wine flights on a Monday. Live jazz Tuesday under the lights. Singer-songwriters in the lounge Wednesday. Trivia in the Private Collection lounge. An immersive author dinner. A whiskey-and-steak July night. Every evening, a different chapter &mdash; same hidden room in Kaimuki.</p>
 
       <div class="hero-stats">
         <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-label">Recurring Nights</span></div>
-        <div class="hero-stat"><span class="hero-stat-num">2</span><span class="hero-stat-label">Featured Evenings</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">Featured Evenings</span></div>
         <div class="hero-stat"><span class="hero-stat-num">∞</span><span class="hero-stat-label">Stories Told</span></div>
       </div>
 
@@ -1375,17 +1375,17 @@
         <article class="day-card">
           <div class="day-card-media">
             <img src="assets/flyers/trivia-night.jpg" alt="Trivia Night flyer" loading="lazy">
-            <span class="day-card-tag">Recurring</span>
-            <span class="day-card-day">Trivia Night</span>
+            <span class="day-card-tag">Every Other Week</span>
+            <span class="day-card-day">Thursdays</span>
           </div>
           <div class="day-card-body">
             <h3 class="day-card-name">Trivia <em>Night</em></h3>
-            <p class="day-card-desc">Speedquizing in the Private Collection lounge. Bring your friends and your brain power for an unforgettable night.</p>
+            <p class="day-card-desc">Speedquizing in the Private Collection lounge, every other Thursday. Bring your friends and your brain power for an unforgettable night.</p>
             <ul class="day-card-perks">
               <li>$10 to play</li>
               <li>Speedquizing format &middot; prizes</li>
-              <li>Private Collection lounge</li>
-              <li>Limited seating &mdash; ask about dates</li>
+              <li>Every other Thursday</li>
+              <li>Private Collection lounge &mdash; limited seating</li>
             </ul>
             <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="day-card-cta">Reserve a Seat</a>
           </div>
@@ -1443,6 +1443,27 @@
               <li><strong>Hours</strong> 4:00 PM &ndash; 10:00 PM</li>
               <li><strong>Features</strong> Whiskey flight selections · Tomahawk for two · Curated bar bites</li>
               <li><strong>Tagline</strong> Good Whiskey. Great Steak. Better Company.</li>
+            </ul>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="btn btn-dark">Reserve Your Table</a>
+          </div>
+        </article>
+
+        <!-- GIRL DINNER -->
+        <article class="featured">
+          <div class="featured-flyer">
+            <img src="assets/flyers/girl-dinner.jpg" alt="Girl Dinner flyer" loading="lazy">
+            <div class="featured-flyer-placeholder">Girl Dinner flyer<br>coming soon</div>
+          </div>
+          <div class="featured-body">
+            <span class="featured-stamp upcoming">★ Monthly Series</span>
+            <p class="featured-date">Date &mdash; ask for details</p>
+            <h3 class="featured-name">Girl<br>Dinner<em>grazing boards · bubbles · best friends</em></h3>
+            <p class="featured-byline">— A night of small plates, sparkling pours &amp; great company —</p>
+            <p class="featured-desc">The grazing board done right. Cheese, charcuterie, and sweet little bites built for sharing, paired with bubbles and our new summer cocktails &amp; mocktails. Gather your people in the Private Collection lounge.</p>
+            <ul class="featured-details">
+              <li><strong>Features</strong> Grazing boards · Sparkling flights · Summer cocktails &amp; mocktails</li>
+              <li><strong>Setting</strong> The Private Collection lounge</li>
+              <li><strong>Tagline</strong> Grazing Boards. Bubbles. Best Friends.</li>
             </ul>
             <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="btn btn-dark">Reserve Your Table</a>
           </div>
@@ -1513,6 +1534,20 @@
           toggle.setAttribute('aria-expanded', 'false');
           toggle.setAttribute('aria-label', 'Open menu');
         });
+      });
+    })();
+
+    // Show the striped "flyer coming soon" placeholder for any flyer image
+    // that hasn't been dropped in yet. Once the file lands, the image loads
+    // and the placeholder stays hidden — no markup change needed.
+    (function() {
+      document.querySelectorAll('.day-card-media img, .featured-flyer img').forEach(function(img) {
+        function mark() {
+          var slot = img.closest('.day-card-media, .featured-flyer');
+          if (slot) slot.classList.add('placeholder');
+        }
+        if (img.complete && img.naturalWidth === 0) mark();
+        img.addEventListener('error', mark);
       });
     })();
   </script>
