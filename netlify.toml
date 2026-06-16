@@ -10,8 +10,10 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Cache the flyer artwork and logos.
+# Flyer artwork gets swapped in place by filename, so always revalidate against
+# the ETag instead of caching for days. Updated flyers then appear immediately
+# (a 304 keeps the bytes cached when nothing changed).
 [[headers]]
   for = "/assets/flyers/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=0, must-revalidate"

@@ -1,7 +1,7 @@
 Drop the flyers into this folder with these exact filenames:
 
   wine-down-mondays.jpg     (or .png)
-  summer-soiree.jpg         (or .png)  -- the cocktails design
+  summer-soiree-cocktails.jpg (or .png)
   live-music.jpg            (or .png)
   trivia-night.jpg          (or .png)
   voices-of-hawaii.jpg      (or .png)
