@@ -1,6 +1,6 @@
 Drop the flyers into this folder with these exact filenames:
 
-  wine.jpeg                  (Wine Down Mondays)
+  wine-down-mondays.png      (Wine Down Mondays)
   summer-soiree-july.jpeg    (Summer Soiree)
   live-music-july.jpeg       (Live Music Wednesdays)
   trivia-night.jpg           (Trivia Night)
