@@ -1,12 +1,12 @@
 Drop the flyers into this folder with these exact filenames:
 
   wine-down-mondays.png      (Wine Down Mondays)
-  summer-soiree-july.jpeg    (Summer Soiree)
-  live-music-july.jpeg       (Live Music Wednesdays)
+  summer-soiree-august.png   (Summer Soiree)
+  live-music-august.png      (Live Music Wednesdays)
   trivia-night.jpg           (Trivia Night)
   gentlemans-dinner.jpg      (The Gentleman's Dinner)
   girl-dinner.png            (Girl Dinner)
-  mahjong.jpeg               (Mahjong & Mingle Over Brunch)
+  mahjong.png                (Mahjong & Morning Bites)
 
 Each flyer is wired into its section by filename. Once a file lands
 here, it appears immediately on the page. Until then, a striped
