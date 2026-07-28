@@ -4,7 +4,7 @@ Drop the flyers into this folder with these exact filenames:
   summer-soiree-august.png   (Summer Soiree)
   live-music-august.png      (Live Music Wednesdays)
   trivia-night.jpg           (Trivia Night)
-  gentlemans-dinner.jpg      (The Gentleman's Dinner)
+  night-in-old-havana.png    (A Night in Old Havana)
   girl-dinner.png            (Girl Dinner)
   mahjong.png                (Mahjong & Morning Bites)
 
