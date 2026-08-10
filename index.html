@@ -875,6 +875,71 @@
     }
 
     /* ═══════════════════════════════════════════
+       PAU HANA — daily happy hour band
+    ═══════════════════════════════════════════ */
+    .happyhour {
+      position: relative;
+      padding: 100px 24px;
+      color: var(--parchment);
+      background:
+        radial-gradient(ellipse at 25% 15%, rgba(184,142,58,0.16) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 85%, rgba(90,31,28,0.30) 0%, transparent 55%),
+        linear-gradient(180deg, #14100a 0%, #0a0805 100%);
+    }
+    .happyhour-inner {
+      position: relative; z-index: 2;
+      max-width: 1040px; margin: 0 auto;
+      display: grid; grid-template-columns: 0.8fr 1.2fr;
+      gap: 54px; align-items: center;
+    }
+    @media (max-width: 820px) { .happyhour-inner { grid-template-columns: 1fr; gap: 34px; } }
+    .happyhour-flyer {
+      max-width: 360px; width: 100%; justify-self: center;
+      background: var(--parchment-light);
+      padding: 12px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35), 0 4px 8px rgba(0,0,0,0.18);
+      transform: rotate(-1.5deg);
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .happyhour-flyer:hover { transform: rotate(0) scale(1.02); }
+    .happyhour-flyer img { width: 100%; display: block; }
+    .happyhour-eyebrow {
+      font-family: 'Maison Voyages Caps', 'Literata', sans-serif;
+      font-size: 13px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--brass-bright); margin-bottom: 16px;
+    }
+    .happyhour-title {
+      font-family: 'Ten Pounds', 'Maison Voyages Caps', serif;
+      font-size: clamp(40px, 6vw, 60px); line-height: 1.02;
+      color: var(--parchment-light); margin-bottom: 6px;
+    }
+    .happyhour-title em {
+      font-family: 'Literata', serif; font-style: italic;
+      color: var(--brass-bright); display: block;
+      font-size: 0.34em; letter-spacing: 1px; margin-top: 10px;
+    }
+    .happyhour-hours {
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
+      font-size: 15px; letter-spacing: 4px; color: var(--brass-bright);
+      text-transform: uppercase; margin-bottom: 26px;
+    }
+    .happyhour-list { list-style: none; margin-bottom: 22px; }
+    .happyhour-list li {
+      display: flex; align-items: baseline; gap: 14px;
+      padding: 10px 0; border-bottom: 1px solid rgba(184,142,58,0.18);
+      font-family: 'Literata', serif; font-size: 17px; color: var(--parchment);
+    }
+    .happyhour-list li .item { flex: 1; }
+    .happyhour-list li .price {
+      font-family: 'Maison Voyages Caps', 'Literata', serif;
+      color: var(--brass-bright); letter-spacing: 1px; font-size: 16px;
+    }
+    .happyhour-note {
+      font-family: 'Literata', serif; font-style: italic;
+      font-size: 15px; color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════════
        THEMED NIGHTS — staggered pinboard
     ═══════════════════════════════════════════ */
     .themed-section {
@@ -1280,11 +1345,11 @@
       <p class="hero-eyebrow">Vintage Books · Honolulu</p>
       <h1 class="hero-title">What's <em>on</em><br>This Week.</h1>
       <div class="hero-divider"><span></span><span>✦</span><span></span></div>
-      <p class="hero-tagline">$30 wine flights on a Monday. Live jazz Tuesday under the lights. Singer-songwriters in the lounge Wednesday. Trivia in the Private Collection lounge. An immersive author dinner. A whiskey-and-steak July night. Every evening, a different chapter &mdash; same hidden room in Kaimuki.</p>
+      <p class="hero-tagline">$30 wine flights on a Monday. Live jazz Tuesday under the lights. Singer-songwriters in the lounge Wednesday. Trivia in the Private Collection lounge. Happy hour every day at four. A night in Old Havana. A whiskey-and-steak September night. Every evening, a different chapter &mdash; same hidden room in Kaimuki.</p>
 
       <div class="hero-stats">
         <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-label">Recurring Nights</span></div>
-        <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">Featured Evenings</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-label">Featured Evenings</span></div>
         <div class="hero-stat"><span class="hero-stat-num">∞</span><span class="hero-stat-label">Stories Told</span></div>
       </div>
 
@@ -1344,7 +1409,7 @@
             <ul class="day-card-perks">
               <li>Live jazz, 8&ndash;10 PM</li>
               <li>New summer cocktails &amp; mocktails</li>
-              <li>Aug 4 Jimmy Funai &middot; Aug 11 Kahuakai</li>
+              <li>Aug 4 Jimmy Funai &middot; Aug 11 Jason Day</li>
               <li>Aug 18 Lucas Utley &middot; Aug 25 Christina Socher</li>
             </ul>
             <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="day-card-cta">Reserve a Table</a>
@@ -1395,6 +1460,29 @@
     </div>
   </section>
 
+  <!-- ═══ PAU HANA — daily happy hour ═══ -->
+  <section class="happyhour">
+    <div class="happyhour-inner">
+      <div class="happyhour-flyer">
+        <img src="assets/flyers/pau-hana.jpeg" alt="Pau Hana — daily happy hour, 4 to 6 PM flyer" loading="lazy">
+      </div>
+      <div class="happyhour-body">
+        <p class="happyhour-eyebrow">— Every Day · Starting August 7 —</p>
+        <h2 class="happyhour-title">Pau Hana<em>the daily wind-down in the lounge</em></h2>
+        <p class="happyhour-hours">Every day &middot; 4:00&ndash;6:00 PM</p>
+        <ul class="happyhour-list">
+          <li><span class="item">Signature cocktails</span><span class="price">$10</span></li>
+          <li><span class="item">Wine by the glass</span><span class="price">$8</span></li>
+          <li><span class="item">All beer</span><span class="price">$6</span></li>
+          <li><span class="item">House spirits + mixer</span><span class="price">$7</span></li>
+          <li><span class="item">Mocktails</span><span class="price">$6</span></li>
+          <li><span class="item">Bar bites</span><span class="price">$10</span></li>
+        </ul>
+        <p class="happyhour-note">Wind down the day in the lounge &mdash; validated parking.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ NOW PLAYING — featured upcoming ═══ -->
   <section class="section" id="upcoming">
     <div class="section-inner">
@@ -1438,16 +1526,16 @@
           <div class="featured-body">
             <span class="featured-stamp upcoming">★ Sunday Nights</span>
             <p class="featured-date">Sundays &middot; 4&ndash;10 PM</p>
-            <h3 class="featured-name">Girl<br>Dinner<em>caesar · fries · two martinis · $50</em></h3>
+            <h3 class="featured-name">Girl<br>Dinner<em>caesar · fries · wine or martinis · $50</em></h3>
             <p class="featured-byline">— Sunday nights, 4&ndash;10 PM, in the Private Collection lounge —</p>
-            <p class="featured-desc">Girl dinner, done properly. A crisp Caesar, a basket of golden fries, and two martinis of your choosing &mdash; all for $50.</p>
+            <p class="featured-desc">Girl dinner, done properly. A house Caesar, a bowl of fries, and your choice of two glasses of wine or sparkling &mdash; or two martinis &mdash; all for $50.</p>
             <ul class="featured-details">
-              <li><strong>Caesar Salad</strong> Local greens, caesar dressing, parmesan cheese</li>
-              <li><strong>Crispy Fries</strong> House aioli</li>
-              <li><strong>2 Martinis</strong> Your pick from the list below</li>
+              <li><strong>House Caesar</strong> Local greens, caesar dressing, parmesan cheese</li>
+              <li><strong>Bowl of Fries</strong> House aioli</li>
+              <li><strong>Your Drinks</strong> 2 glasses of wine or sparkling &mdash; or 2 martinis</li>
               <li><strong>$50</strong> Per person</li>
             </ul>
-            <p class="featured-byline">— Choose Your Martinis —</p>
+            <p class="featured-byline">— Or Choose Your Martinis —</p>
             <ul class="featured-details">
               <li><strong>Classic</strong> Tanqueray gin, dry vermouth, orange bitters</li>
               <li><strong>Dirty</strong> Ketel One vodka, olive brine</li>
@@ -1478,6 +1566,27 @@
               <li><strong>Menu</strong> Full brunch &amp; cocktail menu available</li>
             </ul>
             <a href="https://www.opentable.com/booking/experiences-availability?rid=1461943&amp;restref=1461943&amp;experienceId=744806&amp;dateTime=2026-08-29T12%3A30%3A00&amp;partySize=2" class="btn btn-dark">Reserve Tickets</a>
+          </div>
+        </article>
+
+        <!-- THE GENTLEMAN'S DINNER -->
+        <article class="featured">
+          <div class="featured-flyer">
+            <img src="assets/flyers/gentlemans-dinner.png" alt="The Gentleman's Dinner · September 14 flyer" loading="lazy">
+            <div class="featured-flyer-placeholder">Gentleman's Dinner flyer<br>coming soon</div>
+          </div>
+          <div class="featured-body">
+            <span class="featured-stamp upcoming">★ Featured Dinner</span>
+            <p class="featured-date">Monday &middot; September 14</p>
+            <h3 class="featured-name">The Gentleman's<br>Dinner<em>good whiskey · great steak · better company</em></h3>
+            <p class="featured-byline">— An evening of great company, fine whiskey &amp; exceptional steak —</p>
+            <p class="featured-desc">Curated whiskey flights for the modern gentleman and a show-stopping tomahawk board built to share. The kind of room where the conversation is half the meal.</p>
+            <ul class="featured-details">
+              <li><strong>Hours</strong> 4:00&ndash;10:00 PM</li>
+              <li><strong>Whiskey Flights</strong> $40 &mdash; curated selections for the modern gentleman</li>
+              <li><strong>Tomahawk for 2</strong> $200 &mdash; includes 2 sides &amp; bread · must be preordered</li>
+            </ul>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="btn btn-dark">Reserve Your Table</a>
           </div>
         </article>
 
