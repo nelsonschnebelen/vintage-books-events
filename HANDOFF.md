@@ -14,7 +14,7 @@ Claude**, the same way the page has been maintained so far.
 
 ## 1. Accounts to sign up for
 
-Create free accounts for all three. Use an email you check regularly.
+Create accounts for all three. Use an email you check regularly.
 
 | Service | Why you need it | Cost |
 |---|---|---|
@@ -34,22 +34,45 @@ Send Nelson the **email address / username** you used for GitHub and Netlify.
 He will:
 
 1. **GitHub** — add you as a **collaborator** on the `vintage-books-events`
-   repository (with write access), and accept means you'll get an email
-   invitation — click the link to accept it.
+   repository (with write access). You'll get an email invitation — click the
+   link to accept it.
 2. **Netlify** — add you as a **member** on the site so you can see it in your
    dashboard.
 3. **Claude GitHub connection** — make sure the **Claude GitHub App** has access
-   to the `vintage-books-events` repository. This is the piece that lets Claude
-   save your changes. If it's ever missing, Claude will tell you it "doesn't have
-   GitHub access" — see Troubleshooting below.
+   to the `vintage-books-events` repository (you'll also confirm this yourself in
+   the next step).
 
 ---
 
-## 3. How to make a change (the everyday routine)
+## 3. Connecting Claude Code to GitHub (one-time setup)
 
-1. Go to **https://claude.ai/code** (Claude Code on the web) and open the
-   `vintage-books-events` project. (First time: you'll connect your GitHub
-   account and pick this repository.)
+The first time you use Claude to edit the page, you'll link Claude to GitHub.
+You only do this once.
+
+1. Make sure you've **accepted Nelson's GitHub collaborator invite** first (the
+   email from GitHub) — otherwise the project won't show up.
+2. Go to **https://claude.ai/code** and sign in with your paid Claude account.
+3. Click **"Connect GitHub"** (it may also say "Add repository" or show the
+   GitHub icon).
+4. A GitHub window opens. Sign in to GitHub and click **"Authorize"** to let
+   Claude connect to your account.
+5. GitHub then asks **which repositories Claude can access.** Choose **"Only
+   select repositories,"** pick **`vintage-books-events`**, and click
+   **Install / Save.** (Choosing "All repositories" also works.)
+6. Back in Claude, the **`vintage-books-events`** project now appears in your
+   list — click it to open.
+7. Done. From now on you just open the project and type what you'd like changed.
+
+> If you ever see the message **"Claude doesn't have GitHub access,"** redo
+> step 5 — the repository simply needs to be re-selected in the Claude GitHub
+> App at https://github.com/apps/claude/installations/select_target — then tell
+> Claude "try again."
+
+---
+
+## 4. How to make a change (the everyday routine)
+
+1. Go to **https://claude.ai/code** and open the `vintage-books-events` project.
 2. **Type what you want in plain English.** Claude does the rest — edits the
    page, publishes it, and confirms when it's live.
 3. Wait a minute, then refresh the live page to see it.
@@ -61,7 +84,7 @@ Summer Soirée flyer, please swap it in."* Claude finds it and wires it up.
 
 ---
 
-## 4. Things you can just ask for (examples)
+## 5. Things you can just ask for (examples)
 
 You don't need special wording — talk normally. Real examples that have worked:
 
@@ -76,7 +99,7 @@ Claude will make the change and push it live automatically.
 
 ---
 
-## 5. Good to know
+## 6. Good to know
 
 - **Saving = publishing.** Every change Claude makes goes to the live site
   (the `main` branch). There's no separate "publish" step to remember.
@@ -89,11 +112,11 @@ Claude will make the change and push it live automatically.
 
 ---
 
-## 6. Troubleshooting
+## 7. Troubleshooting
 
 - **"Claude doesn't have GitHub access…"** — the Claude GitHub App lost access to
-  the repository. Fix: an admin re-adds the repo to the Claude GitHub App
-  (https://github.com/apps/claude/installations/select_target) or reconnects
+  the repository. Fix: re-add the repo to the Claude GitHub App
+  (https://github.com/apps/claude/installations/select_target) or reconnect
   GitHub in claude.ai settings. Make sure `vintage-books-events` is **checked**
   in the app's repository list. Then tell Claude "try again."
 - **A change didn't show up on the live page** — wait 1–2 minutes and refresh;
