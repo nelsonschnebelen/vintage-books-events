@@ -1,14 +1,14 @@
 Drop the flyers into this folder with these exact filenames:
 
-  summer-soiree-september.jpeg (Summer Soiree)
-  live-music-september.jpeg    (Live Music Wednesdays)
+  tuesday-soirees-november.jpg (Tuesday Soirées — showing now)
+  live-music-november.jpg      (Live Music Wednesdays — showing now)
   trivia-night.jpg             (Trivia Night)
   pau-hana.jpeg                (Pau Hana daily happy hour)
-  gentlemans-dinner.png        (The Gentleman's Dinner)
-  boots-and-brunch.png         (Boots and Brunch)
-  mahjong.jpeg                 (Mahjong & Morning Bites)
-  spooky-stories.jpeg          (A Night of Spooky Stories)
   girl-dinner.png              (Girl Dinner)
+
+  Staged for December (swap the card images in on ~Dec 1):
+  tuesday-jazz-december.jpg    (Tuesday Jazz Nights — December)
+  live-music-december.jpg      (Live Music Wednesdays — December)
 
 Each flyer is wired into its section by filename. Once a file lands
 here, it appears immediately on the page. Until then, a striped
