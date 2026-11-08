@@ -534,7 +534,8 @@
 
     .week-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 440px));
+      justify-content: center;
       gap: 22px;
       margin-top: 50px;
     }
@@ -705,6 +706,8 @@
     }
     .featured.flip .featured-flyer { transform: rotate(1.5deg); }
     .featured-flyer:hover { transform: rotate(0) scale(1.02); }
+    /* Menu flyers are tall text documents — match their ratio so nothing crops */
+    .featured-flyer.menu { aspect-ratio: 707 / 1000; }
     .featured-flyer img {
       width: 100%; height: 100%;
       object-fit: cover;
@@ -1345,11 +1348,11 @@
       <p class="hero-eyebrow">Vintage Books · Honolulu</p>
       <h1 class="hero-title">What's <em>on</em><br>This Week.</h1>
       <div class="hero-divider"><span></span><span>✦</span><span></span></div>
-      <p class="hero-tagline">Live jazz Tuesday under the lights. Singer-songwriters in the lounge Wednesday. Trivia in the Private Collection lounge. Happy hour every day at four. Girl dinner on a Sunday. Every evening, a different chapter &mdash; same hidden room in Kaimuki.</p>
+      <p class="hero-tagline">Live jazz Tuesday under the lights. Singer-songwriters in the lounge Wednesday. Happy hour every day at four. Girl dinner on a Sunday. A holiday table worth gathering for &mdash; from Thanksgiving week to New Year's Eve. Every evening, a different chapter &mdash; same hidden room in Kaimuki.</p>
 
       <div class="hero-stats">
-        <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">Recurring Nights</span></div>
-        <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">Featured Evenings</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">2</span><span class="hero-stat-label">Recurring Nights</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">6</span><span class="hero-stat-label">Featured Evenings</span></div>
         <div class="hero-stat"><span class="hero-stat-num">∞</span><span class="hero-stat-label">Stories Told</span></div>
       </div>
 
@@ -1371,7 +1374,7 @@
       <div class="section-header">
         <p class="section-eyebrow">The Standing Calendar</p>
         <h2 class="section-title">Every <em>week,</em><br>A different ritual.</h2>
-        <p class="section-sub">Three recurring nights in the back lounge &mdash; each with its own pour, plate, and pace.</p>
+        <p class="section-sub">Two recurring nights in the back lounge &mdash; each with its own pour, plate, and pace. (Trivia is on a holiday pause.)</p>
       </div>
 
       <div class="week-grid">
@@ -1415,26 +1418,6 @@
           </div>
         </article>
 
-        <!-- TRIVIA -->
-        <article class="day-card">
-          <div class="day-card-media">
-            <img src="assets/flyers/trivia-night.jpg" alt="Trivia Night flyer" loading="lazy">
-            <span class="day-card-tag">Every Other Week</span>
-            <span class="day-card-day">Thursdays</span>
-          </div>
-          <div class="day-card-body">
-            <h3 class="day-card-name">Trivia <em>Night</em></h3>
-            <p class="day-card-desc">Speedquizing in the Private Collection lounge, every other Thursday. Bring your friends and your brain power for an unforgettable night.</p>
-            <ul class="day-card-perks">
-              <li>$10 to play</li>
-              <li>Speedquizing format &middot; prizes</li>
-              <li>Every other Thursday</li>
-              <li>Private Collection lounge &mdash; limited seating</li>
-            </ul>
-            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="day-card-cta">Reserve a Seat</a>
-          </div>
-        </article>
-
       </div>
     </div>
   </section>
@@ -1475,6 +1458,73 @@
       <div class="ornament-row"><span></span><span class="mark">✦</span><span></span></div>
 
       <div class="featured-grid">
+
+        <!-- THANKSGIVING WEEK SET MENU -->
+        <article class="featured flip">
+          <div class="featured-flyer menu">
+            <img src="assets/flyers/thanksgiving-week.jpg" alt="Thanksgiving Week Set Menu — Nov 23–29 flyer" loading="lazy">
+            <div class="featured-flyer-placeholder">Thanksgiving menu<br>coming soon</div>
+          </div>
+          <div class="featured-body">
+            <span class="featured-stamp upcoming">★ Thanksgiving Week</span>
+            <p class="featured-date">Nov 23 &ndash; 29 &middot; closed Nov 26</p>
+            <h3 class="featured-name">Thanksgiving<br>Week<em>a prix fixe set menu · $80</em></h3>
+            <p class="featured-byline">— Thanksgiving Week Prix Fixe Menu · $80 per person —</p>
+            <p class="featured-desc">A four-part Thanksgiving-week feast, served Nov 23&ndash;29 (closed Thanksgiving Day, Nov 26).</p>
+            <ul class="featured-details">
+              <li><strong>Amuse</strong> Smoked salmon spoon &mdash; lemon sour crème, keiki cucumber, smoked trout roe</li>
+              <li><strong>First</strong> Roasted butternut squash soup &mdash; Burmese trail mix, crème fraîche, Kupu Farm micro arugula</li>
+              <li><strong>Entrée</strong> Roasted turkey ballotine <em>or</em> baked King Ora salmon</li>
+              <li><strong>Dessert</strong> Caramel apple cheesecake</li>
+            </ul>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="btn btn-dark">Reserve a Table</a>
+          </div>
+        </article>
+
+        <!-- CHRISTMAS EVE SPECIALS -->
+        <article class="featured">
+          <div class="featured-flyer menu">
+            <img src="assets/flyers/christmas-eve.jpg" alt="Christmas Eve Specials — December 24 flyer" loading="lazy">
+            <div class="featured-flyer-placeholder">Christmas Eve menu<br>coming soon</div>
+          </div>
+          <div class="featured-body">
+            <span class="featured-stamp upcoming">★ December 24</span>
+            <p class="featured-date">Thursday &middot; December 24</p>
+            <h3 class="featured-name">Christmas Eve<br>Specials<em>a festive night in the lounge</em></h3>
+            <p class="featured-byline">— Christmas Eve specials, alongside the full menu —</p>
+            <p class="featured-desc">Three holiday specials for Christmas Eve.</p>
+            <ul class="featured-details">
+              <li><strong>Lobster · $65</strong> Sous-vide jumbo cold-water lobster tail, lump crab stuffing, parmesan crema, roasted red bliss potatoes, herbed gremolata</li>
+              <li><strong>Duck, Duck, Goose · $55</strong> Hudson Valley duck breast, duck confit, seared foie gras, choi sum, port wine demi glace, truffled potato puree</li>
+              <li><strong>Panna Cotta · $15</strong> Housemade eggnog panna cotta, candied macadamia nuts, spiced crème anglaise</li>
+            </ul>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="btn btn-dark">Reserve a Table</a>
+          </div>
+        </article>
+
+        <!-- NEW YEAR'S EVE PRIX FIXE -->
+        <article class="featured flip">
+          <div class="featured-flyer menu">
+            <img src="assets/flyers/new-years-eve.jpg" alt="New Year's Eve Prix Fixe Dinner — December 31 flyer" loading="lazy">
+            <div class="featured-flyer-placeholder">New Year's Eve menu<br>coming soon</div>
+          </div>
+          <div class="featured-body">
+            <span class="featured-stamp upcoming">★ New Year's Eve</span>
+            <p class="featured-date">Thursday &middot; December 31</p>
+            <h3 class="featured-name">New Year's Eve<br>Prix Fixe<em>five courses · $160 per person</em></h3>
+            <p class="featured-byline">— A five-course New Year's Eve dinner · $160 per person —</p>
+            <p class="featured-desc">Ring in the new year with a five-course prix fixe. Live music, a glass of cava, and validated parking included.</p>
+            <ul class="featured-details">
+              <li><strong>First</strong> Steamed lobster chawanmushi &mdash; shiitake dashi, osetra caviar, mitsuba</li>
+              <li><strong>Second</strong> Black truffle uovo &mdash; egg yolk ravioli, lemon ricotta, sage brown butter</li>
+              <li><strong>Third</strong> Prime beef Wellington &mdash; mushroom duxelle, garlic spinach, pommes purée</li>
+              <li><strong>Entrée</strong> Pan-seared duck breast &mdash; kabocha purée, grilled asparagus, foie gras</li>
+              <li><strong>Dessert</strong> Peach &amp; champagne semifreddo</li>
+              <li><strong>Included</strong> Live music · glass of cava · validated parking</li>
+            </ul>
+            <a href="https://www.opentable.com/booking/restref/availability?rid=1461943&amp;restref=1461943&amp;lang=en-US&amp;color=1&amp;r3uid=cfe&amp;dark=false&amp;partysize=2&amp;datetime=2026-04-30T19%3A00" class="btn btn-dark">Reserve a Table</a>
+          </div>
+        </article>
 
         <!-- DECEMBER · TUESDAY JAZZ NIGHTS -->
         <article class="featured">
