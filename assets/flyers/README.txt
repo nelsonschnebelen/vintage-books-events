@@ -5,6 +5,7 @@ Drop the flyers into this folder with these exact filenames:
   pau-hana.jpeg                (Pau Hana daily happy hour)
   girl-dinner.png              (Girl Dinner)
   thanksgiving-week.jpg        (Thanksgiving Week Set Menu — featured)
+  mahjong-mistletoe.jpg        (Mahjong & Mistletoe — featured, Dec 19)
   christmas-eve.jpg            (Christmas Eve Specials — featured)
   new-years-eve.jpg            (New Year's Eve Prix Fixe — featured)
   tuesday-jazz-december.jpg    (December Jazz Nights — featured preview)
